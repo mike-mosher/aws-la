@@ -1,24 +1,9 @@
 Status:
 
-Overall todo:
-  - figure out Docker:
-    - Can I make a smaller / cleaner root folder?
-    - What do I need at a bare minimum for docker?
-    - can I get rid of the step where they setup a virtEnvironment?  Just have them run python script globally?
-
-
-
-
-- status:
-  - ELB:
-    - I feel that ELB accesslogs are working well. Can also handle prob the full array of odd logs
-  - ALB:
-    - I feel that ELB accesslogs are working well. Can also handle prob the full array of odd logs
-  - VPC:
-    - I feel that VPC flow logs are working well. Can also handle prob the full array of odd logs
-
-
-
+TODO:
+ - test from clean git clone
+ 
+ 
 
 - Times:
 

@@ -1,0 +1,64 @@
+{
+  "vpc_flowlogs" : {
+    "mappings" : {
+      "vpc_flowlogs" : {
+        "properties":{
+          "version":{
+            "type":"keyword"
+          },
+          "account-id":{
+            "type":"keyword"
+          },
+          "interface-id":{
+            "type":"keyword"
+          },
+          "source_ip_address":{
+            "type":"ip"
+          },
+          "dest_ip_address":{
+            "type":"ip"
+          },
+          "source_port":{
+            "type":"integer"
+          },
+          "dest_port":{
+            "type":"integer"
+          },
+          "protocol":{
+            "type":"keyword"
+          },
+          "packets":{
+            "type":"integer"
+          },
+          "bytes":{
+            "type":"integer"
+          },
+          "start_time":{
+            "type":"date"
+          },
+          "end_time":{
+            "type":"date"
+          },
+          "action":{
+            "type":"keyword"
+          },
+          "log-status":{
+            "type":"keyword"
+          },
+          "duration":{
+            "type":"integer"
+          },
+          "geoip"  : {
+            "dynamic": true,
+            "properties" : {
+              "ip": { "type": "ip" },
+              "location" : { "type" : "geo_point" },
+              "latitude" : { "type" : "half_float" },
+              "longitude" : { "type" : "half_float" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

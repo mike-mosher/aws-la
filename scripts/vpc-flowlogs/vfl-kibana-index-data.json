@@ -1,0 +1,302 @@
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 17,
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : ".kibana",
+        "_type" : "index-pattern",
+        "_id" : "vpc_flowlogs",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "vpc_flowlogs",
+          "timeFieldName" : "timestamp",
+          "fieldFormatMap" : "{\"source_port\":{\"id\":\"number\",\"params\":{\"pattern\":\"00\"}},\"dest_port\":{\"id\":\"number\",\"params\":{\"pattern\":\"00\"}},\"duration\":{\"id\":\"duration\",\"params\":{\"outputFormat\":\"asSeconds\",\"outputPrecision\":0}},\"bytes\":{\"id\":\"bytes\",\"params\":{\"pattern\":\"0,0.[00]b\"}}}",
+          "fields" : "[{\"name\":\"geoip.region_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.ip\",\"type\":\"ip\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":false,\"aggregatable\":false},{\"name\":\"packets\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.country_iso_code.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"protocol\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.continent_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.location\",\"type\":\"geo_point\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"action\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.city_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.continent_name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"log-status\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.longitude\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":false,\"aggregatable\":false},{\"name\":\"timestamp\",\"type\":\"date\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"account-id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"end_time\",\"type\":\"date\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.city_name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"geoip.region_name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"message\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"version\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"source_ip_address\",\"type\":\"ip\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"start_time\",\"type\":\"date\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"message.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.country_iso_code\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"geoip.latitude\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":false,\"aggregatable\":false},{\"name\":\"_source\",\"type\":\"_source\",\"count\":0,\"scripted\":false,\"indexed\":false,\"analyzed\":false,\"doc_values\":false,\"searchable\":false,\"aggregatable\":false},{\"name\":\"interface-id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"dest_ip_address\",\"type\":\"ip\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":false,\"analyzed\":false,\"doc_values\":false,\"searchable\":false,\"aggregatable\":false},{\"name\":\"_type\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":false,\"analyzed\":false,\"doc_values\":false,\"searchable\":true,\"aggregatable\":true},{\"name\":\"_index\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":false,\"analyzed\":false,\"doc_values\":false,\"searchable\":false,\"aggregatable\":false},{\"name\":\"_score\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"indexed\":false,\"analyzed\":false,\"doc_values\":false,\"searchable\":false,\"aggregatable\":false},{\"name\":\"source_port\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"dest_port\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"duration\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"bytes\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true}]"
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "config",
+        "_id" : "5.4.0",
+        "_score" : 1.0,
+        "_source" : {
+          "buildNum" : 15063,
+          "xPackMonitoring:allowReport" : true,
+          "xPackMonitoring:showBanner" : false,
+          "defaultIndex" : "vpc_flowlogs"
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "50609220-8619-11e7-9aa7-2fe136888360",
+        "_score" : 1.0,
+        "_source" : {
+          "visState" : "{\"title\":\"VPC Date Histogram\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"labels\":{\"show\":true,\"truncate\":100},\"position\":\"bottom\",\"scale\":{\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{\"text\":\"timestamp per day\"},\"type\":\"category\"}],\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"interpolate\":\"linear\",\"legendPosition\":\"bottom\",\"radiusRatio\":9,\"scale\":\"linear\",\"seriesParams\":[{\"data\":{\"id\":\"1\",\"label\":\"Count\"},\"drawLinesBetweenPoints\":true,\"mode\":\"stacked\",\"show\":\"true\",\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"}],\"setYExtents\":false,\"showCircles\":true,\"times\":[],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"labels\":{\"filter\":false,\"rotate\":0,\"show\":true,\"truncate\":100},\"name\":\"LeftAxis-1\",\"position\":\"left\",\"scale\":{\"mode\":\"normal\",\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{},\"type\":\"value\"}]},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+          "description" : "",
+          "title" : "VPC Date Histogram",
+          "uiStateJSON" : "{}",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"vpc_flowlogs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "5a001a30-8619-11e7-9aa7-2fe136888360",
+        "_score" : 1.0,
+        "_source" : {
+          "visState" : "{\"title\":\"Geo Map\",\"type\":\"tile_map\",\"params\":{\"mapType\":\"Scaled Circle Markers\",\"isDesaturated\":true,\"addTooltip\":true,\"heatMaxZoom\":0,\"heatMinOpacity\":0.1,\"heatRadius\":25,\"heatBlur\":15,\"heatNormalizeData\":true,\"legendPosition\":\"bottomright\",\"mapZoom\":2,\"mapCenter\":[0,0],\"wms\":{\"enabled\":false,\"url\":\"https://basemap.nationalmap.gov/arcgis/services/USGSTopo/MapServer/WMSServer\",\"options\":{\"version\":\"1.3.0\",\"layers\":\"0\",\"format\":\"image/png\",\"transparent\":true,\"attribution\":\"Maps provided by USGS\",\"styles\":\"\"}}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"geohash_grid\",\"schema\":\"segment\",\"params\":{\"field\":\"geoip.location\",\"autoPrecision\":true,\"useGeocentroid\":true,\"precision\":2}}],\"listeners\":{}}",
+          "description" : "",
+          "title" : "Geo Map",
+          "uiStateJSON" : "{}",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"vpc_flowlogs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "search",
+        "_id" : "1ce35610-8553-11e7-af61-df0ef472b3b9",
+        "_score" : 1.0,
+        "_source" : {
+          "sort" : [
+            "timestamp",
+            "desc"
+          ],
+          "hits" : 0,
+          "description" : "",
+          "title" : "VPC Flow Logs Search",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"vpc_flowlogs\",\"highlightAll\":true,\"version\":true,\"filter\":[],\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}"
+          },
+          "columns" : [
+            "interface-id",
+            "source_ip_address",
+            "source_port",
+            "dest_ip_address",
+            "dest_port",
+            "protocol",
+            "duration",
+            "packets",
+            "bytes",
+            "action",
+            "log-status",
+            "geoip.continent_name",
+            "geoip.country_iso_code",
+            "geoip.region_name",
+            "geoip.city_name"
+          ]
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "6ea7bb00-8619-11e7-9aa7-2fe136888360",
+        "_score" : 1.0,
+        "_source" : {
+          "visState" : "{\"title\":\"Source IP - Pie Chart\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"source_ip_address\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "description" : "",
+          "title" : "Source IP - Pie Chart",
+          "uiStateJSON" : "{}",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"vpc_flowlogs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "7696fb00-8619-11e7-9aa7-2fe136888360",
+        "_score" : 1.0,
+        "_source" : {
+          "visState" : "{\"title\":\"Dest IP - Pie Chart\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"dest_ip_address\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "description" : "",
+          "title" : "Dest IP - Pie Chart",
+          "uiStateJSON" : "{}",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"vpc_flowlogs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "8e12ca70-8619-11e7-9aa7-2fe136888360",
+        "_score" : 1.0,
+        "_source" : {
+          "visState" : "{\"title\":\"Interface - Pie Chart\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"interface-id\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "description" : "",
+          "title" : "Interface - Pie Chart",
+          "uiStateJSON" : "{}",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"vpc_flowlogs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "95aae9c0-8619-11e7-9aa7-2fe136888360",
+        "_score" : 1.0,
+        "_source" : {
+          "visState" : "{\"title\":\"Protocol - Pie Chart\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"protocol\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "description" : "",
+          "title" : "Protocol - Pie Chart",
+          "uiStateJSON" : "{}",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"vpc_flowlogs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "8460cbd0-8619-11e7-9aa7-2fe136888360",
+        "_score" : 1.0,
+        "_source" : {
+          "visState" : "{\"title\":\"Action - Pie Chart\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"action\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "description" : "",
+          "title" : "Action - Pie Chart",
+          "uiStateJSON" : "{}",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"vpc_flowlogs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "63291d40-861a-11e7-9aa7-2fe136888360",
+        "_score" : 1.0,
+        "_source" : {
+          "visState" : "{\"title\":\"Source IP to Interface - Pie Chart\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"source_ip_address\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"interface-id\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "description" : "",
+          "title" : "Source IP to Interface - Pie Chart",
+          "uiStateJSON" : "{}",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"vpc_flowlogs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "be663350-861a-11e7-9aa7-2fe136888360",
+        "_score" : 1.0,
+        "_source" : {
+          "visState" : "{\"title\":\"Source IP - Cloud Tag\",\"type\":\"tagcloud\",\"params\":{\"scale\":\"linear\",\"orientation\":\"single\",\"minFontSize\":18,\"maxFontSize\":72},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"source_ip_address\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "description" : "",
+          "title" : "Source IP - Cloud Tag",
+          "uiStateJSON" : "{}",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"vpc_flowlogs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "c8257860-861a-11e7-9aa7-2fe136888360",
+        "_score" : 1.0,
+        "_source" : {
+          "visState" : "{\"title\":\"Dest Port - Cloud Tag\",\"type\":\"tagcloud\",\"params\":{\"scale\":\"linear\",\"orientation\":\"single\",\"minFontSize\":18,\"maxFontSize\":72},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"dest_port\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "description" : "",
+          "title" : "Dest Port - Cloud Tag",
+          "uiStateJSON" : "{}",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"vpc_flowlogs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "da126600-861a-11e7-9aa7-2fe136888360",
+        "_score" : 1.0,
+        "_source" : {
+          "visState" : "{\"title\":\"Interface - Cloud Tag\",\"type\":\"tagcloud\",\"params\":{\"scale\":\"linear\",\"orientation\":\"single\",\"minFontSize\":18,\"maxFontSize\":72},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"interface-id\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "description" : "",
+          "title" : "Interface - Cloud Tag",
+          "uiStateJSON" : "{}",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"vpc_flowlogs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "09b07e10-861b-11e7-9aa7-2fe136888360",
+        "_score" : 1.0,
+        "_source" : {
+          "visState" : "{\"title\":\"Action - Cloud Tag\",\"type\":\"tagcloud\",\"params\":{\"scale\":\"linear\",\"orientation\":\"single\",\"minFontSize\":18,\"maxFontSize\":72},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"action\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "description" : "",
+          "title" : "Action - Cloud Tag",
+          "uiStateJSON" : "{}",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"vpc_flowlogs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "dashboard",
+        "_id" : "a0fb2f10-8619-11e7-9aa7-2fe136888360",
+        "_score" : 1.0,
+        "_source" : {
+          "hits" : 0,
+          "timeRestore" : false,
+          "description" : "",
+          "title" : "VPC Flow Logs - Dashboard",
+          "uiStateJSON" : "{\"P-7\":{\"mapZoom\":2,\"mapCenter\":[19.642587534013032,-4.21875]}}",
+          "panelsJSON" : "[{\"col\":1,\"id\":\"50609220-8619-11e7-9aa7-2fe136888360\",\"panelIndex\":1,\"row\":1,\"size_x\":12,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"6ea7bb00-8619-11e7-9aa7-2fe136888360\",\"panelIndex\":2,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"7696fb00-8619-11e7-9aa7-2fe136888360\",\"panelIndex\":3,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":9,\"id\":\"95aae9c0-8619-11e7-9aa7-2fe136888360\",\"panelIndex\":4,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":7,\"id\":\"8e12ca70-8619-11e7-9aa7-2fe136888360\",\"panelIndex\":5,\"row\":7,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"8460cbd0-8619-11e7-9aa7-2fe136888360\",\"panelIndex\":6,\"row\":7,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"5a001a30-8619-11e7-9aa7-2fe136888360\",\"panelIndex\":7,\"row\":14,\"size_x\":12,\"size_y\":3,\"type\":\"visualization\"},{\"size_x\":8,\"size_y\":4,\"panelIndex\":8,\"type\":\"visualization\",\"id\":\"63291d40-861a-11e7-9aa7-2fe136888360\",\"col\":1,\"row\":10},{\"size_x\":4,\"size_y\":4,\"panelIndex\":9,\"type\":\"visualization\",\"id\":\"46553370-861a-11e7-9aa7-2fe136888360\",\"col\":9,\"row\":10},{\"size_x\":4,\"size_y\":3,\"panelIndex\":10,\"type\":\"visualization\",\"id\":\"09b07e10-861b-11e7-9aa7-2fe136888360\",\"col\":9,\"row\":21},{\"size_x\":4,\"size_y\":4,\"panelIndex\":11,\"type\":\"visualization\",\"id\":\"c8257860-861a-11e7-9aa7-2fe136888360\",\"col\":9,\"row\":17},{\"size_x\":8,\"size_y\":4,\"panelIndex\":12,\"type\":\"visualization\",\"id\":\"da126600-861a-11e7-9aa7-2fe136888360\",\"col\":1,\"row\":21},{\"size_x\":8,\"size_y\":4,\"panelIndex\":13,\"type\":\"visualization\",\"id\":\"be663350-861a-11e7-9aa7-2fe136888360\",\"col\":1,\"row\":17},{\"size_x\":12,\"size_y\":6,\"panelIndex\":14,\"type\":\"search\",\"id\":\"1ce35610-8553-11e7-af61-df0ef472b3b9\",\"col\":1,\"row\":25,\"columns\":[\"interface-id\",\"source_ip_address\",\"source_port\",\"dest_ip_address\",\"dest_port\",\"protocol\",\"duration\",\"packets\",\"bytes\",\"action\",\"log-status\",\"geoip.continent_name\",\"geoip.country_iso_code\",\"geoip.region_name\",\"geoip.city_name\"],\"sort\":[\"timestamp\",\"desc\"]}]",
+          "optionsJSON" : "{\"darkTheme\":false}",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "46553370-861a-11e7-9aa7-2fe136888360",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Sum of Bytes",
+          "visState" : "{\"title\":\"Sum of Bytes\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":\"40\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"bytes\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"vpc_flowlogs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      }
+    ]
+  }
+}

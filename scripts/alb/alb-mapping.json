@@ -1,0 +1,89 @@
+{
+  "alb_logs" : {
+    "mappings" : {
+      "alb_logs" : {
+        "properties":{
+
+          "connection_type":{
+            "type":"keyword"
+          },
+          "alb_node":{
+            "type":"keyword"
+          },
+          "client_ip_adress":{
+            "type":"ip"
+          },
+          "client_port":{
+            "type":"integer"
+          },
+          "target_ip_adress":{
+            "type":"ip"
+          },
+          "target_port":{
+            "type":"integer"
+          },
+          "target_group_name":{
+            "type":"keyword"
+          },
+          "request_processing_time":{
+            "type":"float"
+          },
+          "target_processing_time":{
+            "type":"float"
+          },
+          "response_processing_time":{
+            "type":"float"
+          },
+          "alb_status_code":{
+            "type":"integer"
+          },
+          "target_status_code":{
+            "type":"integer"
+          },
+          "received_bytes":{
+            "type":"integer"
+          },
+          "sent_bytes":{
+            "type":"integer"
+          },
+          "request":{
+            "type":"keyword"
+          },
+          "agent":{
+            "type":"keyword"
+          },
+          "ssl_cipher":{
+            "type":"keyword"
+          },
+          "ssl_protocol":{
+            "type":"keyword"
+          },
+          "target_group_arn":{
+            "type":"keyword"
+          },
+          "trace_id":{
+            "type":"keyword"
+          },
+          "request_verb":{
+            "type":"keyword"
+          },
+          "request_url":{
+            "type":"keyword"
+          },
+          "request_proto":{
+            "type":"keyword"
+          },
+          "geoip"  : {
+            "dynamic": true,
+            "properties" : {
+              "ip": { "type": "ip" },
+              "location" : { "type" : "geo_point" },
+              "latitude" : { "type" : "half_float" },
+              "longitude" : { "type" : "half_float" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

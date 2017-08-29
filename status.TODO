@@ -1,0 +1,60 @@
+Status:
+
+Overall todo:
+  - figure out Docker:
+    - Can I make a smaller / cleaner root folder?
+    - What do I need at a bare minimum for docker?
+    - can I get rid of the step where they setup a virtEnvironment?  Just have them run python script globally?
+
+
+
+
+- status:
+  - ELB:
+    - I feel that ELB accesslogs are working well. Can also handle prob the full array of odd logs
+  - ALB:
+    - I feel that ELB accesslogs are working well. Can also handle prob the full array of odd logs
+  - VPC:
+    - I feel that VPC flow logs are working well. Can also handle prob the full array of odd logs
+
+
+
+
+- Times:
+
+  # sending 64K docs in batches of 1K
+  $ time python importVpcFlowLogs.py -l ~/logs/vpclogs/eni-02c4f502-all/
+  Total Documents sent to Elasticsearch: 64507
+  real	0m37.129s
+
+  # sending 64K docs in batches of 5K
+  $ time python importVpcFlowLogs.py -l ~/logs/vpclogs/eni-02c4f502-all/ -b 5000
+  Total Documents sent to Elasticsearch: 64507
+  real	0m30.522s
+
+  # sending 64K docs in batches of 10K
+  $ time python importVpcFlowLogs.py -l ~/logs/vpclogs/eni-02c4f502-all/ -b 10000
+  Total Documents sent to Elasticsearch: 64507
+  real	0m32.707s
+
+  # 7mill documents
+  $ time python importVpcFlowLogs.py -l ~/logs/vpclogs/
+  Total Documents sent to Elasticsearch: 6932899
+  real	105m54.846s
+
+
+
+
+
+
+
+Notes:
+to export .kibana index data:
+curl -XGET "http://localhost:9200/.kibana/_search?size=1000&pretty"
+to export .kibana data mapping:
+curl -XGET "http://localhost:9200/.kibana/_mapping?pretty"
+
+
+    from requests_toolbelt.utils import dump
+    data = dump.dump_all(r)
+    print(data.decode('utf-8'))

@@ -2,8 +2,29 @@ Status:
 
 TODO:
  - test from clean git clone
- 
- 
+    - works
+    - done:
+      - git clone https://github.com/mike-mosher/AWS-Logs-to-Docker-ELK.git AWS-Logs-to-Docker-ELK-testing-from-clean-clone
+      - cd AWS-Logs-to-Docker-ELK-testing-from-clean-clone
+      - virtualenv test
+      - source test/bin/activate
+      - docker-compose up -d
+      - docker ps
+      - curl -XGET localhost:9200/_cluster/health?pretty
+      - pip install -r ./requirements.txt
+      - cd scripts/elb/
+      - python importElbLogs.py -l ~/logs/elblogs/
+      - cd ..
+      - cd ..
+      - cd alb
+      - python importAlbLogs.py -l ~/logs/alblogs/
+      - cd ..
+      - cd ..
+      - cd vpc-flowlogs
+      - python importVpcFlowLogs.py -l ~/logs/vpclogs/
+      - browse to http://localhost:5601/app/kibana#/dashboards
+
+
 
 - Times:
 

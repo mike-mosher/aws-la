@@ -88,10 +88,10 @@ The scripts configure everything that is needed in the ELK stack:
 
  - Python output:
  ![Python script output][cli-output]
- * As you can see, I was able to import 12.5 million VPC flowlogs in around 2 hours
+   - As you can see, I was able to import 12.5 million VPC flowlogs in around 2 hours
  
  - Searching for traffic initiated by RFC1918 (private) IP addresses:
-   * Browse to Discover tab, and enter the following query in the query bar:
+   - Browse to Discover tab, and enter the following query in the query bar:
    
    ` source_ip_address:"10.0.0.0/8" OR source_ip_address:"172.16.0.0/12" OR source_ip_address:"192.168.0.0/16" `
    
@@ -108,7 +108,7 @@ The scripts configure everything that is needed in the ELK stack:
   ` interface-id:<eni-name> AND (source_port:<port> OR dest_port:<port>) `
   
   ![Search flow to Specific ENI][search-eni]
-   * Note: VPC Flow Logs split a flow into two log entries, so the above search will find both sides of the flow and show packets / bytes for each
+    - Note: VPC Flow Logs split a flow into two log entries, so the above search will find both sides of the flow and show packets / bytes for each
  
  - Dashboard imported for VPC Flow Logs:
  ![VPC Dashboard][vpc-dashboard]

@@ -84,11 +84,37 @@ The scripts configure everything that is needed in the ELK stack:
    ` docker-compose down -v `
   
 
-## Screenshots / Examples
+## Screenshots / Examples:
 
- - Dashboard that is imported to the ELK cluster when importing ALB Access Logs:
+ - Python output:
+ ![Python script output][cli-output]
+ * As you can see, I was able to import 12.5 million VPC flowlogs in around 2 hours
  
-[ALB Dashboard](screenshots/ALB Dashboard Screenshots/ALB Dashboard.jpg?raw=true)
+ - Searching for traffic initiated by RFC1918 (private) IP addresses:
+   * Browse to Discover tab, and enter the following query in the query bar:
+   
+   ` source_ip_address:"10.0.0.0/8" OR source_ip_address:"172.16.0.0/12" OR source_ip_address:"192.168.0.0/16" `
+   
+   ![Search for RFC1918 Traffic][search-rfc1918]
+   
+  - Alternately, you can search for all traffic initiated by Public IP addresses in the logs:
+  
+  ` NOT (source_ip_address:"10.0.0.0/8" OR source_ip_address:"172.16.0.0/12" OR source_ip_address:"192.168.0.0/16") `
+  
+  ![Search for non-RFC1918 Traffic][search-non-rfc1918]
+  
+  - Search for a specific flow to/from a specific ENI:
+  
+  ` interface-id:<eni-name> AND (source_port:<port> OR dest_port:<port>) `
+  
+  ![Search flow to Specific ENI][search-eni]
+   * Note: VPC Flow Logs split a flow into two log entries, so the above search will find both sides of the flow and show packets / bytes for each
+ 
+ - Dashboard imported for VPC Flow Logs:
+ ![VPC Dashboard][vpc-dashboard]
+ 
+ - Dashboard imported for ALB Access Logs:
+ ![ALB Dashboard][alb-dashboard]
  
  
  
@@ -98,3 +124,9 @@ The scripts configure everything that is needed in the ELK stack:
 
 [docker-for-windows]: https://docs.docker.com/docker-for-windows/install/#download-docker-for-windows
 [docker-for-mac]: https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac
+[cli-output]: screenshots/VFL_example_12.5m_documents_imported.png?raw=true
+[alb-dashboard]: screenshots/ALB_Dashboard_Screenshots/ALB_Dashboard.jpg?raw=true
+[vpc-dashboard]: screenshots/VPC_Dashboard_Screenshots/VPC_Flow_Logs_Dashboard.jpg?raw=true
+[search-rfc1918]: screenshots/VPC_Dashboard_Screenshots/Search_for_RFC1918_traffic.png?raw=true
+[search-non-rfc1918]: screenshots/VPC_Dashboard_Screenshots/Search_for_non_RFC1918_traffic.png?raw=true
+[search-eni]: screenshots/VPC_Dashboard_Screenshots/Search_for_both_sides_of_a_flow_record_for_a_specific_ENI.png?raw=true

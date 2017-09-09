@@ -124,9 +124,9 @@ The scripts configure everything that is needed in the ELK stack:
 
 [docker-for-windows]: https://docs.docker.com/docker-for-windows/install/#download-docker-for-windows
 [docker-for-mac]: https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac
-[cli-output]: screenshots/VFL_example_12.5m_documents_imported.png?raw=true
-[alb-dashboard]: screenshots/ALB_Dashboard_Screenshots/ALB_Dashboard.jpg?raw=true
-[vpc-dashboard]: screenshots/VPC_Dashboard_Screenshots/VPC_Flow_Logs_Dashboard.jpg?raw=true
-[search-rfc1918]: screenshots/VPC_Dashboard_Screenshots/Search_for_RFC1918_traffic.png?raw=true
-[search-non-rfc1918]: screenshots/VPC_Dashboard_Screenshots/Search_for_non_RFC1918_traffic.png?raw=true
-[search-eni]: screenshots/VPC_Dashboard_Screenshots/Search_for_both_sides_of_a_flow_record_for_a_specific_ENI.png?raw=true
+[cli-output]: examples_screenshots/VFL_example_12.5m_documents_imported.png?raw=true
+[alb-dashboard]: examples_screenshots/ALB_Dashboard_Screenshots/ALB_Dashboard.jpg?raw=true
+[vpc-dashboard]: examples_screenshots/VPC_Dashboard_Screenshots/VPC_Flow_Logs_Dashboard.jpg?raw=true
+[search-rfc1918]: examples_screenshots/VPC_Dashboard_Screenshots/Search_for_RFC1918_traffic.png?raw=true
+[search-non-rfc1918]: examples_screenshots/VPC_Dashboard_Screenshots/Search_for_non_RFC1918_traffic.png?raw=true
+[search-eni]: examples_screenshots/VPC_Dashboard_Screenshots/Search_for_both_sides_of_a_flow_record_for_a_specific_ENI.png?raw=true

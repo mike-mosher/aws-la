@@ -88,7 +88,7 @@ The scripts configure everything that is needed in the ELK stack:
 
  - Dashboard that is imported to the ELK cluster when importing ALB Access Logs:
  
- ![ALB Dashboard](alb-dashboard)
+[ALB Dashboard](screenshots/ALB Dashboard Screenshots/ALB Dashboard.jpg?raw=true)
  
  
  
@@ -98,4 +98,3 @@ The scripts configure everything that is needed in the ELK stack:
 
 [docker-for-windows]: https://docs.docker.com/docker-for-windows/install/#download-docker-for-windows
 [docker-for-mac]: https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac
-[alb-dashboard]: AWS-Logs-to-Docker-ELK/screenshots/ALB Dashboard Screenshots/ALB_Dashboard.jpg?raw=true

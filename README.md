@@ -10,6 +10,7 @@ These scripts allow you to easily import various AWS log types into an Elasticse
  - ELB access logs
  - ALB access logs
  - VPC flow logs
+ - [Route53 Query Logs][r53-query-logs]
  
  
 ## Future Log Types Supported
@@ -122,6 +123,7 @@ The scripts configure everything that is needed in the ELK stack:
 
  
 
+[r53-query-logs: https://aws.amazon.com/about-aws/whats-new/2017/09/amazon-route-53-announces-support-for-dns-query-logging/
 [docker-for-windows]: https://docs.docker.com/docker-for-windows/install/#download-docker-for-windows
 [docker-for-mac]: https://docs.docker.com/docker-for-mac/install/#download-docker-for-mac
 [cli-output]: examples_screenshots/VFL_example_12.5m_documents_imported.png?raw=true

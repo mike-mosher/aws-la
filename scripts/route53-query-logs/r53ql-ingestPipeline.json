@@ -1,0 +1,63 @@
+{
+  "description" : "Ingest pipeline for Route53 Query Logs",
+  "processors" : [
+    {
+      "grok": {
+        "field": "message",
+        "patterns":
+          [
+            "^%{TIMESTAMP_ISO8601:timestamp} %{NUMBER:log_version} %{TIMESTAMP_ISO8601:dns_query_timestamp} %{WORD:hosted_zone_id} %{DATA:dns_query_name} %{WORD:dns_query_type} %{WORD:dns_response_code} %{WORD:protocol} %{WORD:r53_edge_location} %{IPV4:resolver_ip_address} %{EDNS_CLIENT_SUBNET_STRING:edns_client_subnet_string}$"
+          ],
+        "pattern_definitions":
+          {
+            "NONVALID_FIELD" : "-",
+            "VALID_IP_PREFIX" : "%{IPV4}/%{NUMBER}",
+            "EDNS_CLIENT_SUBNET_STRING" : "%{VALID_IP_PREFIX}|%{NONVALID_FIELD}"
+          }
+      }
+    },
+    {
+      "grok": {
+        "field": "edns_client_subnet_string",
+        "ignore_missing": true,
+        "patterns":
+          [
+            "%{DATA:edns_client_subnet_zero}/%{NUMBER:edns_client_cidr}", "-", ""
+          ]
+      }
+    },
+    {
+      "geoip": {
+        "field": "resolver_ip_address",
+        "ignore_missing": true
+      }
+    },
+    {
+      "set": {
+        "field": "edns_client_subnet",
+        "value": "{{edns_client_subnet_zero}}/{{edns_client_cidr}}"
+      }
+    },
+    {
+      "grok": {
+        "field": "edns_client_subnet",
+        "patterns":
+          [
+            "%{IPV4}/%{NUMBER}"
+          ],
+          "on_failure" : [
+            {
+              "remove": {
+                "field": "edns_client_subnet"
+              }
+            }
+          ]
+      }
+    },
+    {
+      "remove": {
+        "field": "edns_client_subnet_string"
+      }
+    }
+  ]
+}

@@ -1,0 +1,331 @@
+{
+  "took" : 0,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 19,
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : ".kibana",
+        "_type" : "index-pattern",
+        "_id" : "r53_query_logs",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "r53_query_logs",
+          "timeFieldName" : "dns_query_timestamp",
+          "fields" : "[{\"name\":\"dns_response_code\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.region_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.ip\",\"type\":\"ip\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":false,\"aggregatable\":false},{\"name\":\"geoip.country_iso_code.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"protocol\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"edns_client_subnet_zero\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.continent_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.location\",\"type\":\"geo_point\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.city_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.continent_name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"geoip.longitude\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":false,\"aggregatable\":false},{\"name\":\"dns_query_timestamp\",\"type\":\"date\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"resolver_ip_address\",\"type\":\"ip\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"timestamp\",\"type\":\"date\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"edns_client_subnet\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"hosted_zone_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"dns_query_name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.city_name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"geoip.region_name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"message\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"r53_edge_location\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"dns_query_type\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"message.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.country_iso_code\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"geoip.latitude\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":false,\"aggregatable\":false},{\"name\":\"edns_client_cidr\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"_source\",\"type\":\"_source\",\"count\":0,\"scripted\":false,\"indexed\":false,\"analyzed\":false,\"doc_values\":false,\"searchable\":false,\"aggregatable\":false},{\"name\":\"log_version\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":false,\"analyzed\":false,\"doc_values\":false,\"searchable\":false,\"aggregatable\":false},{\"name\":\"_type\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":false,\"analyzed\":false,\"doc_values\":false,\"searchable\":true,\"aggregatable\":true},{\"name\":\"_index\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":false,\"analyzed\":false,\"doc_values\":false,\"searchable\":false,\"aggregatable\":false},{\"name\":\"_score\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"indexed\":false,\"analyzed\":false,\"doc_values\":false,\"searchable\":false,\"aggregatable\":false}]"
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "fd2c5910-9633-11e7-848c-2fa788e7078d",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Top 10 EDNS Client Subnets",
+          "visState" : "{\"title\":\"Top 10 EDNS Client Subnets\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"edns_client_subnet\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "bff32150-9633-11e7-848c-2fa788e7078d",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Top 10 DNS Response Code",
+          "visState" : "{\"title\":\"Top 10 DNS Response Code\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"dns_response_code\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "3b9a35b0-9633-11e7-848c-2fa788e7078d",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Hosted Zone ID",
+          "visState" : "{\"title\":\"Hosted Zone ID\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"hosted_zone_id\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "a9647100-9633-11e7-848c-2fa788e7078d",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Top Protocols",
+          "visState" : "{\"title\":\"Top Protocols\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"protocol\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "search",
+        "_id" : "ab701590-95dd-11e7-991d-cf35a58166c4",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Route53 Query Logs",
+          "description" : "",
+          "hits" : 0,
+          "columns" : [
+            "dns_query_timestamp",
+            "hosted_zone_id",
+            "dns_query_name",
+            "dns_query_type",
+            "dns_response_code",
+            "protocol",
+            "r53_edge_location",
+            "resolver_ip_address",
+            "edns_client_subnet",
+            "geoip.continent_name",
+            "geoip.country_iso_code",
+            "geoip.city_name",
+            "geoip.region_name"
+          ],
+          "sort" : [
+            "dns_query_timestamp",
+            "desc"
+          ],
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"highlightAll\":true,\"version\":true,\"filter\":[],\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "config",
+        "_id" : "5.4.0",
+        "_score" : 1.0,
+        "_source" : {
+          "buildNum" : 15063,
+          "defaultIndex" : "r53_query_logs",
+          "xPackMonitoring:allowReport" : true,
+          "xPackMonitoring:showBanner" : false
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "376ac760-9634-11e7-a79d-5328e5dea8ac",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Date Histogram by DNS Query Type",
+          "visState" : "{\"title\":\"Date Histogram by DNS Query Type\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"labels\":{\"show\":true,\"truncate\":100},\"position\":\"bottom\",\"scale\":{\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{\"text\":\"dns_query_timestamp per 3 hours\"},\"type\":\"category\"}],\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"interpolate\":\"linear\",\"legendPosition\":\"right\",\"radiusRatio\":9,\"scale\":\"linear\",\"seriesParams\":[{\"data\":{\"id\":\"1\",\"label\":\"Count\"},\"drawLinesBetweenPoints\":true,\"mode\":\"stacked\",\"show\":\"true\",\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"}],\"setYExtents\":false,\"showCircles\":true,\"times\":[],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"labels\":{\"filter\":false,\"rotate\":0,\"show\":true,\"truncate\":100},\"name\":\"LeftAxis-1\",\"position\":\"left\",\"scale\":{\"mode\":\"normal\",\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{},\"type\":\"value\"}]},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"dns_query_timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"dns_query_type\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "d7633b80-9634-11e7-9e8e-1b19efe2e124",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Resolver IP - Geo Map",
+          "visState" : "{\"title\":\"Resolver IP - Geo Map\",\"type\":\"tile_map\",\"params\":{\"mapType\":\"Scaled Circle Markers\",\"isDesaturated\":true,\"addTooltip\":true,\"heatMaxZoom\":0,\"heatMinOpacity\":0.1,\"heatRadius\":25,\"heatBlur\":15,\"heatNormalizeData\":true,\"legendPosition\":\"bottomright\",\"mapZoom\":2,\"mapCenter\":[0,0],\"wms\":{\"enabled\":false,\"url\":\"https://basemap.nationalmap.gov/arcgis/services/USGSTopo/MapServer/WMSServer\",\"options\":{\"version\":\"1.3.0\",\"layers\":\"0\",\"format\":\"image/png\",\"transparent\":true,\"attribution\":\"Maps provided by USGS\",\"styles\":\"\"}}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"geohash_grid\",\"schema\":\"segment\",\"params\":{\"field\":\"geoip.location\",\"autoPrecision\":true,\"useGeocentroid\":true,\"precision\":2}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "1cc50830-9634-11e7-848c-2fa788e7078d",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Top 10 R53 Edge Locations",
+          "visState" : "{\"title\":\"Top 10 R53 Edge Locations\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"r53_edge_location\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "ac8c6f80-9634-11e7-9e8e-1b19efe2e124",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "EDNS Client Subnet - Cloud Tag",
+          "visState" : "{\"title\":\"EDNS Client Subnet - Cloud Tag\",\"type\":\"tagcloud\",\"params\":{\"scale\":\"linear\",\"orientation\":\"single\",\"minFontSize\":18,\"maxFontSize\":72},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"edns_client_subnet\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "81dd01a0-9634-11e7-9e8e-1b19efe2e124",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "DNS Response Code - Cloud Tag",
+          "visState" : "{\"title\":\"DNS Response Code - Cloud Tag\",\"type\":\"tagcloud\",\"params\":{\"scale\":\"linear\",\"orientation\":\"single\",\"minFontSize\":18,\"maxFontSize\":72},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"dns_response_code\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "4ccd53c0-9634-11e7-9e8e-1b19efe2e124",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "DNS Resolver IP - Cloud Tag",
+          "visState" : "{\"title\":\"DNS Resolver IP - Cloud Tag\",\"type\":\"tagcloud\",\"params\":{\"scale\":\"linear\",\"orientation\":\"single\",\"minFontSize\":18,\"maxFontSize\":72},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"resolver_ip_address\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "6ea9b150-9634-11e7-9e8e-1b19efe2e124",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "DNS Query Type - Cloud Tag",
+          "visState" : "{\"title\":\"DNS Query Type - Cloud Tag\",\"type\":\"tagcloud\",\"params\":{\"scale\":\"linear\",\"orientation\":\"single\",\"minFontSize\":18,\"maxFontSize\":72},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"dns_query_type\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "64b97130-9634-11e7-9e8e-1b19efe2e124",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "DNS Query - Cloud Tag",
+          "visState" : "{\"title\":\"DNS Query - Cloud Tag\",\"type\":\"tagcloud\",\"params\":{\"scale\":\"linear\",\"orientation\":\"single\",\"minFontSize\":18,\"maxFontSize\":72},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"dns_query_name\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "5d19a630-9633-11e7-848c-2fa788e7078d",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Top 20 DNS Query Names",
+          "visState" : "{\"title\":\"Top 20 DNS Query Names\",\"type\":\"table\",\"params\":{\"perPage\":20,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"dns_query_name\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "7b736cb0-9633-11e7-9e8e-1b19efe2e124",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Top 10 DNS Query Types - Pie",
+          "visState" : "{\"title\":\"Top 10 DNS Query Types - Pie\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"dns_query_type\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "e4df2fe0-9633-11e7-848c-2fa788e7078d",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Top 20 DNS Resolver IPs",
+          "visState" : "{\"title\":\"Top 20 DNS Resolver IPs\",\"type\":\"table\",\"params\":{\"perPage\":20,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"resolver_ip_address\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"r53_query_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "dashboard",
+        "_id" : "e197b090-9634-11e7-9e8e-1b19efe2e124",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Route53 Query Logs",
+          "hits" : 0,
+          "description" : "",
+          "panelsJSON" : "[{\"size_x\":4,\"size_y\":4,\"panelIndex\":1,\"type\":\"visualization\",\"id\":\"3b9a35b0-9633-11e7-848c-2fa788e7078d\",\"col\":1,\"row\":9},{\"size_x\":5,\"size_y\":5,\"panelIndex\":2,\"type\":\"visualization\",\"id\":\"7b736cb0-9633-11e7-9e8e-1b19efe2e124\",\"col\":8,\"row\":4},{\"size_x\":4,\"size_y\":4,\"panelIndex\":3,\"type\":\"visualization\",\"id\":\"bff32150-9633-11e7-848c-2fa788e7078d\",\"col\":5,\"row\":9},{\"size_x\":7,\"size_y\":3,\"panelIndex\":4,\"type\":\"visualization\",\"id\":\"fd2c5910-9633-11e7-848c-2fa788e7078d\",\"col\":6,\"row\":13},{\"size_x\":7,\"size_y\":3,\"panelIndex\":5,\"type\":\"visualization\",\"id\":\"1cc50830-9634-11e7-848c-2fa788e7078d\",\"col\":6,\"row\":16},{\"size_x\":7,\"size_y\":5,\"panelIndex\":6,\"type\":\"visualization\",\"id\":\"5d19a630-9633-11e7-848c-2fa788e7078d\",\"col\":1,\"row\":4},{\"size_x\":5,\"size_y\":6,\"panelIndex\":7,\"type\":\"visualization\",\"id\":\"e4df2fe0-9633-11e7-848c-2fa788e7078d\",\"col\":1,\"row\":13},{\"size_x\":4,\"size_y\":4,\"panelIndex\":8,\"type\":\"visualization\",\"id\":\"a9647100-9633-11e7-848c-2fa788e7078d\",\"col\":9,\"row\":9},{\"size_x\":12,\"size_y\":3,\"panelIndex\":9,\"type\":\"visualization\",\"id\":\"376ac760-9634-11e7-a79d-5328e5dea8ac\",\"col\":1,\"row\":1},{\"size_x\":12,\"size_y\":4,\"panelIndex\":10,\"type\":\"visualization\",\"id\":\"d7633b80-9634-11e7-9e8e-1b19efe2e124\",\"col\":1,\"row\":19},{\"size_x\":12,\"size_y\":5,\"panelIndex\":11,\"type\":\"search\",\"id\":\"ab701590-95dd-11e7-991d-cf35a58166c4\",\"col\":1,\"row\":23,\"columns\":[\"dns_query_timestamp\",\"hosted_zone_id\",\"dns_query_name\",\"dns_query_type\",\"dns_response_code\",\"protocol\",\"r53_edge_location\",\"resolver_ip_address\",\"edns_client_subnet\",\"geoip.continent_name\",\"geoip.country_iso_code\",\"geoip.city_name\",\"geoip.region_name\"],\"sort\":[\"dns_query_timestamp\",\"desc\"]}]",
+          "optionsJSON" : "{\"darkTheme\":false}",
+          "uiStateJSON" : "{\"P-1\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-3\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-4\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-5\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-6\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-7\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-8\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}}",
+          "version" : 1,
+          "timeRestore" : false,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}],\"highlightAll\":true,\"version\":true}"
+          }
+        }
+      }
+    ]
+  }
+}

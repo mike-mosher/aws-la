@@ -1,0 +1,55 @@
+{
+  "r53_query_logs" : {
+    "mappings" : {
+      "r53_query_logs" : {
+        "properties":{
+          "log_version":{
+            "type":"float"
+          },
+          "dns_query_timestamp":{
+            "type":"date"
+          },
+          "hosted_zone_id":{
+            "type":"keyword"
+          },
+          "dns_query_name":{
+            "type":"keyword"
+          },
+          "dns_query_type":{
+            "type":"keyword"
+          },
+          "dns_response_code":{
+            "type":"keyword"
+          },
+          "protocol":{
+            "type":"keyword"
+          },
+          "r53_edge_location":{
+            "type":"keyword"
+          },
+          "resolver_ip_address":{
+            "type":"ip"
+          },
+          "edns_client_subnet":{
+            "type":"keyword"
+          },
+          "edns_client_subnet_zero":{
+            "type":"keyword"
+          },
+          "edns_client_cidr":{
+            "type":"keyword"
+          },
+          "geoip"  : {
+            "dynamic": true,
+            "properties" : {
+              "ip": { "type": "ip" },
+              "location" : { "type" : "geo_point" },
+              "latitude" : { "type" : "half_float" },
+              "longitude" : { "type" : "half_float" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

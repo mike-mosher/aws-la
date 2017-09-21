@@ -14,7 +14,36 @@ def createIndexAndMapping():
     with open(script_dir + 'mapping.json') as f:
         mapping = json.load(f)
 
-    es.indices.create(index=options.index_name, ignore=400, body=mapping['elb_logs'])
+    """
+     Let's explain what we are doing in the following section:
+
+     Elasticsearch mappings look like this:
+
+        {
+          "<index_name>" : {
+            "mappings" : {
+              "<index_type>" : {
+                "properties":{
+                    /// all the things
+                }
+              }
+            }
+        }
+
+     In this section, we want to build a custom mapping for each different log type
+     The mapping file in ./scripts/<log-type> should be built correctly, but let's not trust this
+     Need to grab the mapping file and set the index name and index type
+
+    """
+
+    mapping_index_name = mapping.keys()[0]                                                # name of the index in the mapping file (ie: 'elb_logs')
+    mapping_index_type = mapping[mapping_index_name]['mappings'].keys()[0]                # name of the index type in the mapping file (should be the same as index name)
+    properties_data = mapping[mapping_index_name]['mappings'][mapping_index_type].copy()  # this is the mapping data that we need
+
+    mapping = {'mappings' : { options.index_type : properties_data } }                    # this is the new mapping object with the correct index name and type for this log type
+
+    # create the index and mapping for this log type
+    es.indices.create(index=options.index_name, ignore=400, body=mapping)
 
 def putIngestPipeline():
     print 'Creating Ingest Pipeline for index: ' + options.index_name
@@ -24,32 +53,6 @@ def putIngestPipeline():
         pipeline = json.load(f)
 
     es.ingest.put_pipeline(id=options.index_name, body=pipeline)
-
-def updateKibanaIndexMapping():
-    # Update mappings for .kibana index
-    print "Updating mapping for .kibana index"
-
-    # pull payload from mapping file
-    with open(script_dir + 'kibana-index-mapping.json') as f:
-        mappingdata = json.load(f)
-
-    # update search mappings
-    url = 'http://' + options.es_host + ':5601/elasticsearch/.kibana/_mapping/search'
-    payload = json.dumps(mappingdata['.kibana']['mappings']['search'])
-    headers = { 'kbn-version': '5.4.0' }
-    r = requests.put(url, data=payload, headers=headers)
-
-    # update visualization mappings
-    url = 'http://' + options.es_host + ':5601/elasticsearch/.kibana/_mapping/visualization'
-    payload = json.dumps(mappingdata['.kibana']['mappings']['visualization'])
-    headers = { 'kbn-version': '5.4.0' }
-    r = requests.put(url, data=payload, headers=headers)
-
-    # update dashboard mappings
-    url = 'http://' + options.es_host + ':5601/elasticsearch/.kibana/_mapping/dashboard'
-    payload = json.dumps(mappingdata['.kibana']['mappings']['dashboard'])
-    headers = { 'kbn-version': '5.4.0' }
-    r = requests.put(url, data=payload, headers=headers)
 
 def createKibanaIndexIndexPattern():
     print "Creating new index-pattern in .kibana index"
@@ -244,6 +247,10 @@ options.bulk_limit = int(options.bulk_limit)
 
 # Hard-set the index name
 options.index_name = "elb_logs"
+
+# although index_name is the same as index_type, we'll hard set both so the vars are understandable
+options.index_type = options.index_name
+
 
 #logdir is required
 if not options.log_directory:

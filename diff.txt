@@ -1,0 +1,214 @@
+Master repo:
+
+mikmoshe:[~/git/mikmoshe/AWS-Logs-to-Docker-ELK/scripts/elb]$ python importElbLogs.py -l ~/logs/elblogs/
+Total Documents sent to Elasticsearch: 213
+
+
+mikmoshe:[~/git/mikmoshe/AWS-Logs-to-Docker-ELK/scripts/alb]$ python importAlbLogs.py -l ~/logs/alblogs/
+Total Documents sent to Elasticsearch: 151
+
+
+mikmoshe:[~/git/mikmoshe/AWS-Logs-to-Docker-ELK/scripts/vpc-flowlogs]$ python importVpcFlowLogs.py -l ~/logs/vpclogs/VPC-Flow-Logs-Cust-Med/
+Total Documents sent to Elasticsearch: 55552
+
+
+mikmoshe:[~/git/mikmoshe/AWS-Logs-to-Docker-ELK/scripts/route53-query-logs]$ python importr53QueryLogs.py -l ~/logs/awsRoute53QueryLogs/
+Total Documents sent to Elasticsearch: 43335
+
+
+
+
+
+
+consolidation repo:
+
+mikmoshe:[~/git/mikmoshe/AWS-Logs-to-Docker-ELK]$ python importLogs.py --logtype elb --logdir ~/logs/elblogs/
+Importing log file:  /Users/mikmoshe/logs/elblogs/my_testing_elb_access_logs/AWSLogs/803222876536/elasticloadbalancing/us-west-2/2017/08/11/803222876536_elasticloadbalancing_us-west-2_test-clb-tcp-ssl-listener_20170811T0415Z_35.166.52.134_5zchw3v7.log
+Importing log file:  /Users/mikmoshe/logs/elblogs/my_testing_elb_access_logs/AWSLogs/803222876536/elasticloadbalancing/us-west-2/2017/08/11/803222876536_elasticloadbalancing_us-west-2_test-clb-tcp-ssl-listener_20170811T0415Z_52.36.4.20_5eln307h.log
+Importing log file:  /Users/mikmoshe/logs/elblogs/my_testing_elb_access_logs/AWSLogs/803222876536/elasticloadbalancing/us-west-2/2017/08/22/803222876536_elasticloadbalancing_us-west-2_test-clb-tcp-ssl-listener_20170822T0130Z_34.211.117.85_4n55ha6m.log
+Importing log file:  /Users/mikmoshe/logs/elblogs/my_testing_elb_access_logs/AWSLogs/803222876536/elasticloadbalancing/us-west-2/2017/08/22/803222876536_elasticloadbalancing_us-west-2_test-clb-tcp-ssl-listener_20170822T0130Z_52.25.235.238_nnneucun.log
+Importing log file:  /Users/mikmoshe/logs/elblogs/my_testing_elb_access_logs/AWSLogs/803222876536/elasticloadbalancing/us-west-2/2017/08/22/803222876536_elasticloadbalancing_us-west-2_test-clb-tcp-ssl-listener_20170822T0135Z_34.211.117.85_m008ocmk.log
+Importing log file:  /Users/mikmoshe/logs/elblogs/my_testing_elb_access_logs/AWSLogs/803222876536/elasticloadbalancing/us-west-2/2017/08/22/803222876536_elasticloadbalancing_us-west-2_test-clb-tcp-ssl-listener_20170822T0135Z_52.25.235.238_19w6q2r2.log
+Importing log file:  /Users/mikmoshe/logs/elblogs/my_testing_elb_access_logs/AWSLogs/803222876536/elasticloadbalancing/us-west-2/2017/08/22/803222876536_elasticloadbalancing_us-west-2_test-clb-tcp-ssl-listener_20170822T0140Z_34.211.117.85_2jm9zwy2.log
+Importing log file:  /Users/mikmoshe/logs/elblogs/my_testing_elb_access_logs/AWSLogs/803222876536/elasticloadbalancing/us-west-2/2017/08/22/803222876536_elasticloadbalancing_us-west-2_test-clb-tcp-ssl-listener_20170822T0140Z_52.25.235.238_1n6vrzjy.log
+Importing log file:  /Users/mikmoshe/logs/elblogs/my_testing_elb_access_logs/AWSLogs/803222876536/elasticloadbalancing/us-west-2/2017/08/22/803222876536_elasticloadbalancing_us-west-2_test-clb-tcp-ssl-listener_20170822T0145Z_52.25.235.238_4cf5zswe.log
+Total Documents sent to Elasticsearch: 25
+
+
+mikmoshe:[~/git/mikmoshe/AWS-Logs-to-Docker-ELK]$ python importLogs.py --logtype alb --logdir ~/logs/alblogs/
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0100Z_54.191.198.30_35ry7ao3.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0100Z_54.71.237.66_6f3n5731.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0225Z_52.10.215.144_5d8dvq02.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0305Z_54.71.237.66_4kemynmk.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0330Z_54.71.237.66_2w1ps2uj.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0355Z_52.10.215.144_23z6on02.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0435Z_54.191.198.30_3eqoxvda.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0520Z_54.71.237.66_4ak5hwm1.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0525Z_54.191.198.30_44395mqv.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0655Z_54.191.198.30_4folfzai.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0705Z_54.71.237.66_3m8ojtbe.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0720Z_54.71.237.66_3hw7ejjw.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0730Z_52.10.215.144_54ya976w.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0740Z_52.10.215.144_37argb38.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0740Z_54.71.237.66_2wzwha2d.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0750Z_52.10.215.144_36xvo1ku.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0825Z_54.71.237.66_2coagkf1.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0905Z_52.10.215.144_2k3iseic.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T0920Z_54.71.237.66_5oacel71.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1035Z_52.10.215.144_5fuu632f.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1125Z_54.71.237.66_41rsawbx.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1130Z_54.71.237.66_9mf1at9g.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1205Z_54.191.198.30_486epe97.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1235Z_52.10.215.144_1k9787um.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1445Z_54.191.198.30_5np9kfts.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1525Z_54.71.237.66_29akckn3.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1535Z_54.191.198.30_242uhg1u.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1535Z_54.71.237.66_m941zczi.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1645Z_54.71.237.66_5gxg5957.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1700Z_54.71.237.66_3apdclh5.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1715Z_54.71.237.66_4fmg4ct2.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1720Z_52.10.215.144_5fpe8g60.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1720Z_54.191.198.30_5vmhbidu.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1835Z_54.71.237.66_3dyn12ue.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1845Z_52.10.215.144_37nh9ed8.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1845Z_54.191.198.30_1v9uy1ez.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1850Z_54.191.198.30_vff87pxj.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1850Z_54.71.237.66_1d02hhb4.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1855Z_54.71.237.66_37vqnt1z.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T1940Z_52.10.215.144_52ic46lo.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T2030Z_54.71.237.66_5adlw96n.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T2035Z_54.191.198.30_1k8214yg.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T2045Z_52.10.215.144_2j4llpbk.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T2050Z_52.10.215.144_50nvmjd2.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T2115Z_54.191.198.30_3bw8uhrd.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T2230Z_52.10.215.144_3819mwbg.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T2235Z_54.71.237.66_3x8x6rln.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T2255Z_52.10.215.144_1cco0e22.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T2300Z_52.10.215.144_29tpm7co.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T2335Z_54.71.237.66_4jckr9l2.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T2350Z_54.191.198.30_5787ji10.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs//803222876536_elasticloadbalancing_us-west-2_app.aws-training-custexp-num3-elb-1.5a47331c454ade35_20170531T2355Z_54.191.198.30_dc7e9k0s.log.gz
+File: .DS_Store is not the correct format. File need to end with *.gz
+File: .DS_Store is not the correct format. File need to end with *.gz
+File: .DS_Store is not the correct format. File need to end with *.gz
+File: ELBAccessLogTestFile is not the correct format. File need to end with *.gz
+File: .DS_Store is not the correct format. File need to end with *.gz
+File: .DS_Store is not the correct format. File need to end with *.gz
+File: .DS_Store is not the correct format. File need to end with *.gz
+File: .DS_Store is not the correct format. File need to end with *.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs/my_testing_alb_access_logs/AWSLogs/803222876536/elasticloadbalancing/us-west-2/2017/08/22/803222876536_elasticloadbalancing_us-west-2_app.testing-stuff.960c77d0fb70e227_20170822T0150Z_52.88.218.12_4yh8uus7.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs/my_testing_alb_access_logs/AWSLogs/803222876536/elasticloadbalancing/us-west-2/2017/08/22/803222876536_elasticloadbalancing_us-west-2_app.testing-stuff.960c77d0fb70e227_20170822T0150Z_54.69.201.179_4zzg55r9.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs/my_testing_alb_access_logs/AWSLogs/803222876536/elasticloadbalancing/us-west-2/2017/08/22/803222876536_elasticloadbalancing_us-west-2_app.testing-stuff.960c77d0fb70e227_20170822T0155Z_52.88.218.12_nekgp700.log.gz
+Importing log file:  /Users/mikmoshe/logs/alblogs/my_testing_alb_access_logs/AWSLogs/803222876536/elasticloadbalancing/us-west-2/2017/08/22/803222876536_elasticloadbalancing_us-west-2_app.testing-stuff.960c77d0fb70e227_20170822T0155Z_54.69.201.179_3vmdwkiw.log.gz
+Total Documents sent to Elasticsearch: 7
+
+
+mikmoshe:[~/git/mikmoshe/AWS-Logs-to-Docker-ELK]$ python importLogs.py --logtype vpc --logdir ~/logs/vpclogs/VPC-Flow-Logs-Cust-Med/
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-0b0af205-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-0b95e337-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-0d24dc03-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-176e5f2b-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-19271c25-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-1e0eec21-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-21e5632f-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-2792e41b-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-2b341f25-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-2f83ac13-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-35361d3b-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-3add3e05-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-3def6933-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-417b497d-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-424ddb68-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-4e298072-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-580ca564-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-61e3656f-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-63e3656d-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-63ee686d-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-7a1b2046-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-967547aa-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-9d4476a1-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-a395e39f-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-a797e19b-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-ab482597-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-addc3f92-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-b093e58c-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-b796e08b-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-bfe563b1-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-c7211afb-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-cd6450f1-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-eea9dfd2-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-eeb457d1-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-f0d1f8cc-all/000000.gz
+Importing log file:  /Users/mikmoshe/logs/vpclogs/VPC-Flow-Logs-Cust-Med/eni-f60ceec9-all/000000.gz
+Total Documents sent to Elasticsearch: 579
+
+mikmoshe:[~/git/mikmoshe/AWS-Logs-to-Docker-ELK]$ python importLogs.py --logtype r53 --logdir ~/logs/awsRoute53QueryLogs/
+Begin importing log files
+File: .DS_Store is not the correct format. File need to end with *.gz
+File: .DS_Store is not the correct format. File need to end with *.gz
+File: .DS_Store is not the correct format. File need to end with *.gz
+File: .DS_Store is not the correct format. File need to end with *.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/mikmoshe.myinstance.com/cb896db8-bace-4612-81ec-906600ff704c/Z1PGW9Y0Z3HZLP-ATL52/000000.gz
+File: .DS_Store is not the correct format. File need to end with *.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/mikmoshe.myinstance.com/cb896db8-bace-4612-81ec-906600ff704c/Z1PGW9Y0Z3HZLP-JFK5/000000.gz
+File: .DS_Store is not the correct format. File need to end with *.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-AMS1/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-AMS50/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-ARN1/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-ATL50/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-ATL51/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-ATL52/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-BOM51/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-CDG3/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-CDG50/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-DFW3/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-DFW54/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-DUB2/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-EWR50/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-FRA53/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-FRA54/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-FRA6/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-GRU1/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-GRU50/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-HKG50/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-HKG51/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-IAD12/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-IAD16/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-ICN50/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-ICN51/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-ICN54/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-IND6/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-JFK1/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-JFK5/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-JFK6/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-KUL50/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-LAX3/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-LHR5/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-LHR50/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-LHR52/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-MEL50/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-MIA50/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-MRS50/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-NRT12/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-NRT20/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-NRT51/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-NRT52/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-NRT53/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-ORD50/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-ORD51/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-ORD54/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-PRG50/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-SEA32/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-SFO20/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-SFO5/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-SFO9/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-SIN2/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-SIN3/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-SYD1/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-VIE50/000000.gz
+Importing log file:  /Users/mikmoshe/logs/awsRoute53QueryLogs/olaoyea-logs/57530e02-d3ca-4299-9ad7-b1f0d011625a/Z35IFIC5SQVQ2P-YUL62/000000.gz
+File: .DS_Store is not the correct format. File need to end with *.gz
+File: .DS_Store is not the correct format. File need to end with *.gz
+Total Documents sent to Elasticsearch: 6
+
+-- actually imported 40,000 records.  No other records in ELK!!!

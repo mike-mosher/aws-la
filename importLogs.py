@@ -2,6 +2,7 @@ from elasticsearch import Elasticsearch, helpers
 import optparse
 import requests
 import json
+import gzip
 import os
 import sys
 
@@ -129,67 +130,79 @@ def importObjectsToKibana():
 
     return DashboardId
 
-def loadFiles():
-    print "Begin importing log files"
-
+def processFiles(f):
     # list for bulk documents
     documents = []
     totDocs = 0
 
+    for log_line in f:
+        # Create the body and sanitize
+        source = {"message": log_line.replace('"', "::").strip('\n') }
+        body = {"_index": options.index_name, "_type": options.index_name, "pipeline": options.index_name, "_source": source }
+
+        # append record to list before bulk send to ES
+        documents.append(body)
+        totDocs +=1
+
+        if len(documents) >= options.bulk_limit:
+            # bulk send all our entries
+            status = helpers.parallel_bulk(es, documents)
+
+            # look through each result for status
+            for i in status:
+                if i[0] == False:
+                    print "There was an error importing a record.  Error: ", i[1]
+
+            # Using this to have the doc count stay on one line and continually be updated
+            sys.stdout.write("Total Documents sent to Elasticsearch: " + str(totDocs) + "\r")
+            sys.stdout.flush()
+
+            # now clean out the document list
+            documents[:] = []
+
+            # If we've made it here, then the file ended, and it's possible we still have documents in documents list.  Need to send what we have
+            if len(documents) > 0:
+                # bulk send all our entries
+                status = helpers.parallel_bulk(es, documents)
+
+                # look through each result for status
+                for i in status:
+                    if i[0] == False:
+                        print "There was an error importing a record.  Error: ", i[1]
+
+                # Using this to have the doc count stay on one line and continually be updated
+                sys.stdout.write("Total Documents sent to Elasticsearch: " + str(totDocs) + "\r")
+                sys.stdout.flush()
+
+                # now clean out the document list
+                documents[:] = []
+
+
+def loadFiles():
+    print "Begin importing log files"
+
     # traverse root directory, and list directories as dirs and files as files
     for root, dirs, files in os.walk(options.log_directory):
         for log_file in files:
-            if log_file.endswith(".log"):
+            if log_file.endswith(log_file_extension):
                 print "Importing log file: ", root + "/" + log_file
 
-                with open(root + '/' + log_file, 'rb') as f:
-                    for log_line in f:
-
-                        # Create the body and sanitize
-                        source = {"message": log_line.replace('"', "::").strip('\n') }
-                        body = {"_index": options.index_name, "_type": options.index_name, "pipeline": options.index_name, "_source": source }
-
-                        # append record to list before bulk send to ES
-                        documents.append(body)
-                        totDocs +=1
-
-                        if len(documents) >= options.bulk_limit:
-                            # bulk send all our entries
-                            status = helpers.parallel_bulk(es, documents)
-
-                            # look through each result for status
-                            for i in status:
-                                if i[0] == False:
-                                    print "There was an error importing a record.  Error: ", i[1]
-
-                            # Using this to have the doc count stay on one line and continually be updated
-                            sys.stdout.write("Total Documents sent to Elasticsearch: " + str(totDocs) + "\r")
-                            sys.stdout.flush()
-
-                            # now clean out the document list
-                            documents[:] = []
-
-                    # If we've made it here, then the file ended, and it's possible we still have documents in documents list.  Need to send what we have
-                    if len(documents) > 0:
-                        # bulk send all our entries
-                        status = helpers.parallel_bulk(es, documents)
-
-                        # look through each result for status
-                        for i in status:
-                            if i[0] == False:
-                                print "There was an error importing a record.  Error: ", i[1]
-
-                        # Using this to have the doc count stay on one line and continually be updated
-                        sys.stdout.write("Total Documents sent to Elasticsearch: " + str(totDocs) + "\r")
-                        sys.stdout.flush()
-
-                        # now clean out the document list
-                        documents[:] = []
+                # some logs are uncompressed (*.log) and others compressed (*.gz)
+                # we have to try and see which one opens
+                if log_file_extension == '.gz':
+                    with gzipopen(root + '/' + log_file, 'rb') as f:
+                        processFiles(f)
+                elif log_file_extension == '.log':
+                    with open(root + '/' + log_file, 'rb') as f:
+                        processFiles(f)
+                else:
+                    # don't know how we got here, but just in case
+                    # wrong file type. Will not import this log
+                    print "File: " + log_file + " is not the correct format. File need to end with *" + log_file_extension
 
             else:
-                # wrong file type.  VPC flow logs should be in *.gz format
-                # will not import this log
-                print "File: " + log_file + " is not an ELB Access log file. Log files need to end with *.log"
+                # wrong file type. Will not import this log
+                print "File: " + log_file + " is not the correct format. File need to end with *" + log_file_extension
 
     # print the final doc count before moving out of the function
     sys.stdout.write("Total Documents sent to Elasticsearch: " + str(totDocs) + "\r")
@@ -253,21 +266,25 @@ options.bulk_limit = int(options.bulk_limit)
 if options.logtype == 'elb':
     options.index_name = 'elb_logs'
     options.script_dir = 'scripts/elb/'
+    log_file_extension = '.log'
 elif options.logtype == 'alb':
     options.index_name = 'alb_logs'
     options.script_dir = 'scripts/alb/'
+    log_file_extension = '.gz'
 elif options.logtype == 'vpc':
     options.index_name = 'vpc_flowlogs'
     options.script_dir = 'scripts/vpc/'
+    log_file_extension = '.gz'
 elif options.logtype == 'r53':
     options.index_name = 'r53_query_logs'
     options.script_dir = 'scripts/r53/'
+    log_file_extension = '.gz'
 else:
     parser.error('input for --logtype is not a valid option.  Use \'--help\' for a list of options')
 
-
 # although index_name is the same as index_type, we'll hard set both so the vars are understandable
 options.index_type = options.index_name
+
 
 
 

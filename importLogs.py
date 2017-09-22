@@ -11,7 +11,7 @@ def createIndexAndMapping():
     print "Creating mapping in ES for index: %s" % (options.index_name)
 
     #open mappings file
-    with open(script_dir + 'mapping.json') as f:
+    with open(options.script_dir + 'mapping.json') as f:
         mapping = json.load(f)
 
     """
@@ -49,7 +49,7 @@ def putIngestPipeline():
     print 'Creating Ingest Pipeline for index: ' + options.index_name
 
     #open mappings file
-    with open(script_dir + 'ingestPipeline.json') as f:
+    with open(options.script_dir + 'ingestPipeline.json') as f:
         pipeline = json.load(f)
 
     es.ingest.put_pipeline(id=options.index_name, body=pipeline)
@@ -68,13 +68,13 @@ def createKibanaIndexIndexPattern():
     print "Setting formatted fields on index-pattern"
 
     #open file with objects
-    with open(script_dir + 'kibana-index-data.json') as f:
+    with open(options.script_dir + 'kibana-index-data.json') as f:
         data = json.load(f)
 
         for i in data['hits']['hits']:
-            if i['_type'] == 'index-pattern' and i['_id'] == 'elb_logs':
+            if i['_type'] == 'index-pattern' and i['_id'] == options.index_name:
 
-                url = 'http://' + options.es_host + ':5601/elasticsearch/.kibana/index-pattern/elb_logs/_update'
+                url = 'http://' + options.es_host + ':5601/elasticsearch/.kibana/index-pattern/' + options.index_name + '/_update'
                 headers = { 'kbn-version': '5.4.0' }
 
                 payload = { "doc": {} }
@@ -112,7 +112,7 @@ def importObjectsToKibana():
     DashboardId = ""
 
     #open file with objects
-    with open(script_dir + 'kibana-index-data.json') as f:
+    with open(options.script_dir + 'kibana-index-data.json') as f:
         data = json.load(f)
 
         for i in data['hits']['hits']:
@@ -125,7 +125,7 @@ def importObjectsToKibana():
 
             if i['_type'] == 'dashboard':
                 # Need to grab the dashboard ID, so that I can create a direct link at the end
-                elbDashboardId = i['_id']
+                DashboardId = i['_id']
 
     return DashboardId
 
@@ -198,7 +198,7 @@ def loadFiles():
 
 #Input Parsing
 parser = optparse.OptionParser(
-                    usage="Send AWS logs to a local dockerized Elasticsearch cluster\ntest",
+                    usage="Send AWS logs to a local dockerized Elasticsearch cluster\n\nRequired fields:\n--logdir\n--logtype\n\nValid options for log type:\nelb      # ELB access logs\nalb      # ALB access logs\nvpc      # VPC flow logs\nr53      # Route53 query logs\n",
                     version="0.1"
                   )
 
@@ -211,7 +211,7 @@ parser.add_option('-l',
 parser.add_option('-t',
                   '--logtype',
                   dest="logtype",
-                  help=something
+                  help='log type to import to ELK. See --help for valid options'
                   )
 
 parser.add_option('-s',
@@ -252,12 +252,16 @@ options.bulk_limit = int(options.bulk_limit)
 
 if options.logtype == 'elb':
     options.index_name = 'elb_logs'
+    options.script_dir = 'scripts/elb/'
 elif options.logtype == 'alb':
     options.index_name = 'alb_logs'
+    options.script_dir = 'scripts/alb/'
 elif options.logtype == 'vpc':
     options.index_name = 'vpc_flowlogs'
+    options.script_dir = 'scripts/vpc/'
 elif options.logtype == 'r53':
     options.index_name = 'r53_query_logs'
+    options.script_dir = 'scripts/r53/'
 else:
     parser.error('input for --logtype is not a valid option.  Use \'--help\' for a list of options')
 
@@ -279,11 +283,8 @@ createIndexAndMapping()
 # Put the Ingest Pipeline
 putIngestPipeline()
 
-# Update .kibana index mappings
-updateKibanaIndexMapping()
-
-# Create a new index-pattern in .kibana index for elb_logs
-createKibanaIndexElbIndexPattern()
+# Create a new index-pattern in .kibana index
+createKibanaIndexIndexPattern()
 
 # Set new index-pattern to default index
 setKibanaIndexDefaultIndex()
@@ -293,7 +294,7 @@ deleteKibanaIndexIndexPatterns()
 
 # Import search / visualizations / dashboards into Kibana
 # we will be returned the dashboard ID, so that we can put it in the URL at the end
-elbDashboardId = importObjectsToKibana()
+DashboardId = importObjectsToKibana()
 
 # Load files into ES
 loadFiles()
@@ -306,9 +307,9 @@ url = ""
 # Set the default time window to the last 24 hours.  This way people will see data in the Dashboard, since 15 minutes (the default) usually isn't enough
 url_timeframe = "?_g=(refreshInterval:(display:Off,pause:!f,value:0),time:(from:now-24h,mode:quick,to:now))"
 
-if elbDashboardId:
-    # If elbDashboardId has been set, then send them directly to the dashboard URL
-    url = 'http://' + options.es_host + ':5601/app/kibana#/dashboard/' + elbDashboardId + url_timeframe
+if DashboardId:
+    # If DashboardId has been set, then send them directly to the dashboard URL
+    url = 'http://' + options.es_host + ':5601/app/kibana#/dashboard/' + DashboardId + url_timeframe
 else:
     # I was unable to grab the dashboard ID for some reason.  Just give them the default URL
     url = 'http://' + options.es_host + ':5601/'

@@ -182,31 +182,49 @@ def processFiles(f):
 def loadFiles():
     print "Begin importing log files"
 
-    # traverse root directory, and list directories as dirs and files as files
-    for root, dirs, files in os.walk(options.log_directory):
-        for log_file in files:
-            if log_file.endswith(log_file_extension):
-                print "Importing log file: ", root + "/" + log_file
+    #local vars
+    totDocs = ""
+    failure = False
 
-                # some logs are uncompressed (*.log) and others compressed (*.gz)
-                # we have to try and see which one opens
-                if log_file_extension == '.gz':
-                    with gzip.open(root + '/' + log_file, 'rb') as f:
-                        totDocs = processFiles(f)
-                elif log_file_extension == '.log':
-                    with open(root + '/' + log_file, 'rb') as f:
-                        totDocs = processFiles(f)
+    # might be good to check if the dir they gave has files in it (valid dir)
+    try:
+        next(os.walk(options.log_directory))
+    except:
+        print ""
+        print 'The directory \'' + options.log_directory + '\' doesn\'t seem to contain any log files.  Please check the --logdir argument again'
+        print ""
+        print "No logs imported!"
+        print ""
+        failure = True
+
+    if not failure:
+
+        # traverse root directory, and list directories as dirs and files as files
+        for root, dirs, files in os.walk(options.log_directory):
+            for log_file in files:
+                if log_file.endswith(log_file_extension):
+
+                    # some logs are uncompressed (*.log) and others compressed (*.gz)
+                    # we have to try and see which one opens
+                    if log_file_extension == '.gz':
+                        with gzip.open(root + '/' + log_file, 'rb') as f:
+                            print "Importing log file: ", root + "/" + log_file
+                            totDocs = processFiles(f)
+                    elif log_file_extension == '.log':
+                        with open(root + '/' + log_file, 'rb') as f:
+                            print "Importing log file: ", root + "/" + log_file
+                            totDocs = processFiles(f)
+                    else:
+                        # don't know how we got here, but just in case
+                        # wrong file type. Will not import this log
+                        print "File: " + log_file + " is not the correct format. File need to end with *" + log_file_extension
+
                 else:
-                    # don't know how we got here, but just in case
                     # wrong file type. Will not import this log
                     print "File: " + log_file + " is not the correct format. File need to end with *" + log_file_extension
 
-            else:
-                # wrong file type. Will not import this log
-                print "File: " + log_file + " is not the correct format. File need to end with *" + log_file_extension
-
-    # print the final doc count before moving out of the function
-    sys.stdout.write("Total Documents sent to Elasticsearch: " + str(totDocs) + "\r")
+        # print the final doc count before moving out of the function
+        sys.stdout.write("Total Documents sent to Elasticsearch: " + str(totDocs) + "\r")
 
 
 

@@ -177,6 +177,7 @@ def processFiles(f):
                 # now clean out the document list
                 documents[:] = []
 
+    return totDocs
 
 def loadFiles():
     print "Begin importing log files"
@@ -190,11 +191,11 @@ def loadFiles():
                 # some logs are uncompressed (*.log) and others compressed (*.gz)
                 # we have to try and see which one opens
                 if log_file_extension == '.gz':
-                    with gzipopen(root + '/' + log_file, 'rb') as f:
-                        processFiles(f)
+                    with gzip.open(root + '/' + log_file, 'rb') as f:
+                        totDocs = processFiles(f)
                 elif log_file_extension == '.log':
                     with open(root + '/' + log_file, 'rb') as f:
-                        processFiles(f)
+                        totDocs = processFiles(f)
                 else:
                     # don't know how we got here, but just in case
                     # wrong file type. Will not import this log

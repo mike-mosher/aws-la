@@ -196,14 +196,9 @@ def loadFiles():
 
 
 
-
-#set the help section for --logtype in the parser
-logtype_parser_help = "log type to send to Elasticsearch\n\r"
-logtype_parser_help += "  More words."
-
 #Input Parsing
 parser = optparse.OptionParser(
-                    usage="Send AWS logs to a local dockerized Elasticsearch cluster",
+                    usage="Send AWS logs to a local dockerized Elasticsearch cluster\ntest",
                     version="0.1"
                   )
 
@@ -215,8 +210,8 @@ parser.add_option('-l',
 
 parser.add_option('-t',
                   '--logtype',
-                  dest="index_name",
-                  help=logtype_parser_help
+                  dest="logtype",
+                  help=something
                   )
 
 parser.add_option('-s',
@@ -242,23 +237,34 @@ parser.add_option('-b',
 
 (options,args) = parser.parse_args()
 
-#sanitize
-options.bulk_limit = int(options.bulk_limit)
-
-# Hard-set the index name
-options.index_name = "elb_logs"
-
-# although index_name is the same as index_type, we'll hard set both so the vars are understandable
-options.index_type = options.index_name
-
 
 #logdir is required
 if not options.log_directory:
     parser.error('--logdir is a required field.  Use \'--help\' for a list of options')
 
 #logtype is required
-if not options.log_type:
+if not options.logtype:
     parser.error('--logtype is a required field.  Use \'--help\' for a list of options')
+
+
+#sanitize
+options.bulk_limit = int(options.bulk_limit)
+
+if options.logtype == 'elb':
+    options.index_name = 'elb_logs'
+elif options.logtype == 'alb':
+    options.index_name = 'alb_logs'
+elif options.logtype == 'vpc':
+    options.index_name = 'vpc_flowlogs'
+elif options.logtype == 'r53':
+    options.index_name = 'r53_query_logs'
+else:
+    parser.error('input for --logtype is not a valid option.  Use \'--help\' for a list of options')
+
+
+# although index_name is the same as index_type, we'll hard set both so the vars are understandable
+options.index_type = options.index_name
+
 
 
 print ""

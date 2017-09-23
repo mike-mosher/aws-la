@@ -133,7 +133,6 @@ def importObjectsToKibana():
 def processFiles(f):
     # list for bulk documents
     documents = []
-    totDocs = 0
 
     for log_line in f:
         # Create the body and sanitize
@@ -142,7 +141,7 @@ def processFiles(f):
 
         # append record to list before bulk send to ES
         documents.append(body)
-        totDocs +=1
+        options.totalDocCount +=1
 
         if len(documents) >= options.bulk_limit:
             # bulk send all our entries
@@ -154,36 +153,37 @@ def processFiles(f):
                     print "There was an error importing a record.  Error: ", i[1]
 
             # Using this to have the doc count stay on one line and continually be updated
-            sys.stdout.write("Total Documents sent to Elasticsearch: " + str(totDocs) + "\r")
+            sys.stdout.write("Total Documents sent to Elasticsearch: " + str(options.totalDocCount) + "\r")
             sys.stdout.flush()
 
             # now clean out the document list
             documents[:] = []
 
-            # If we've made it here, then the file ended, and it's possible we still have documents in documents list.  Need to send what we have
-            if len(documents) > 0:
-                # bulk send all our entries
-                status = helpers.parallel_bulk(es, documents)
+    # If we've made it here, then the file ended, and it's possible we still have documents in documents list.  Need to send what we have
+    if len(documents) > 0:
+        # bulk send all our entries
+        status = helpers.parallel_bulk(es, documents)
 
-                # look through each result for status
-                for i in status:
-                    if i[0] == False:
-                        print "There was an error importing a record.  Error: ", i[1]
+        # look through each result for status
+        for i in status:
+            if i[0] == False:
+                print "There was an error importing a record.  Error: ", i[1]
 
-                # Using this to have the doc count stay on one line and continually be updated
-                sys.stdout.write("Total Documents sent to Elasticsearch: " + str(totDocs) + "\r")
-                sys.stdout.flush()
+        # Using this to have the doc count stay on one line and continually be updated
+        sys.stdout.write("Total Documents sent to Elasticsearch: " + str(options.totalDocCount) + "\r")
+        sys.stdout.flush()
 
-                # now clean out the document list
-                documents[:] = []
+        # now clean out the document list
+        documents[:] = []
 
-    return totDocs
+    # print the final doc count before moving out of the function
+    sys.stdout.write("Total Documents sent to Elasticsearch: " + str(options.totalDocCount) + "\r")
+
 
 def loadFiles():
     print "Begin importing log files"
 
     #local vars
-    totDocs = ""
     failure = False
 
     # might be good to check if the dir they gave has files in it (valid dir)
@@ -198,22 +198,25 @@ def loadFiles():
         failure = True
 
     if not failure:
-
         # traverse root directory, and list directories as dirs and files as files
         for root, dirs, files in os.walk(options.log_directory):
             for log_file in files:
                 if log_file.endswith(log_file_extension):
 
                     # some logs are uncompressed (*.log) and others compressed (*.gz)
-                    # we have to try and see which one opens
+                    # Need to unpack them and send them to be processed
                     if log_file_extension == '.gz':
                         with gzip.open(root + '/' + log_file, 'rb') as f:
+
                             print "Importing log file: ", root + "/" + log_file
-                            totDocs = processFiles(f)
+                            processFiles(f)
+
                     elif log_file_extension == '.log':
+
                         with open(root + '/' + log_file, 'rb') as f:
                             print "Importing log file: ", root + "/" + log_file
-                            totDocs = processFiles(f)
+                            processFiles(f)
+
                     else:
                         # don't know how we got here, but just in case
                         # wrong file type. Will not import this log
@@ -224,7 +227,7 @@ def loadFiles():
                     print "File: " + log_file + " is not the correct format. File need to end with *" + log_file_extension
 
         # print the final doc count before moving out of the function
-        sys.stdout.write("Total Documents sent to Elasticsearch: " + str(totDocs) + "\r")
+        sys.stdout.write("Total Documents sent to Elasticsearch: " + str(options.totalDocCount) + "\r")
 
 
 
@@ -234,7 +237,7 @@ parser = optparse.OptionParser(
                     version="0.1"
                   )
 
-parser.add_option('-l',
+parser.add_option('-d',
                   '--logdir',
                   dest="log_directory",
                   help='directory in which the log files are located'
@@ -246,26 +249,6 @@ parser.add_option('-t',
                   help='log type to import to ELK. See --help for valid options'
                   )
 
-parser.add_option('-s',
-                  '--servername',
-                  dest="es_host",
-                  default="localhost",
-                  help='specify an alternate ES IP address if not localhost'
-                  )
-
-parser.add_option('-p',
-                  '--port',
-                  dest="port",
-                  default="9200",
-                  help='specify an alternate ES port if not 9200'
-                  )
-
-parser.add_option('-b',
-                  '--bulk',
-                  dest="bulk_limit",
-                  default=5000,
-                  help='specify an bulk limit to batch requests to Elasticsearch'
-                  )
 
 (options,args) = parser.parse_args()
 
@@ -278,9 +261,10 @@ if not options.log_directory:
 if not options.logtype:
     parser.error('--logtype is a required field.  Use \'--help\' for a list of options')
 
-
-#sanitize
-options.bulk_limit = int(options.bulk_limit)
+#hard setting vars that used to be cli arguments
+options.es_host = 'localhost'
+options.port = '9200'
+options.bulk_limit = 5000
 
 if options.logtype == 'elb':
     options.index_name = 'elb_logs'
@@ -301,10 +285,12 @@ elif options.logtype == 'r53':
 else:
     parser.error('input for --logtype is not a valid option.  Use \'--help\' for a list of options')
 
-# although index_name is the same as index_type, we'll hard set both so the vars are understandable
+# although index_name is the same as index_type, we'll hard set both so the script is understandable
 options.index_type = options.index_name
 
 
+# var to hold total doc count sent to ES
+options.totalDocCount = 0
 
 
 print ""

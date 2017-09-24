@@ -46,6 +46,8 @@ The scripts configure everything that is needed in the ELK stack:
 
   `pip install -r ./requirements.txt`
 
+## Running the Script
+
 - Bring the docker environment up:
 
   `docker-compose up -d`

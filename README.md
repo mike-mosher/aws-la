@@ -71,7 +71,6 @@ The scripts configure everything that is needed in the ELK stack:
   --logtype alb
   --logtype vpc
   --logtype r53
-  `
   ```
 
 - Browse to the link provided in the output by using `cmd + double-click`, or browse directly to the default Kibana page:

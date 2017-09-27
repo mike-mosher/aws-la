@@ -179,7 +179,6 @@ def processFiles(f):
     # print the final doc count before moving out of the function
     sys.stdout.write("Total Documents sent to Elasticsearch: " + str(options.totalDocCount) + "\r")
 
-
 def loadFiles():
     print "Begin importing log files"
 

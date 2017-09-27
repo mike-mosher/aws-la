@@ -1,11 +1,11 @@
 version: '2'
 services:
   elasticsearch:
+    container_name: elasticsearch
+    hostname: elasticsearch
     image: docker.elastic.co/elasticsearch/elasticsearch:5.4.0
-    container_name: elasticsearch-5.4.0
     ports:
       - 9200:9200
-      - 9300:9300
     environment:
       - cluster.name=docker-es
       - bootstrap.memory_lock=true
@@ -15,10 +15,19 @@ services:
       memlock:
         soft: -1
         hard: -1
+    #Internal network for the containers
+    networks:
+      - elk-stack
   kibana:
+    container_name: kibana
+    hostname: kibana
     image: docker.elastic.co/kibana/kibana:5.4.0
-    container_name: kibana-5.4.0
     ports:
-      - "5601:5601"
-    links:
-      - elasticsearch
+      - 5601:5601
+    # Internal network for the containers
+    networks:
+      - elk-stack
+    # We don't start Kibana until the ES instance is ready
+    depends_on: ['elasticsearch']
+networks:
+  elk-stack:

@@ -12,7 +12,7 @@
     },
     {
       "script": {
-        "inline": "ctx.duration = (ctx.end - ctx.start) / 60; ctx.start = ctx.start.toString(); ctx.end = ctx.end.toString();"
+        "inline": "ctx.duration = (ctx.end - ctx.start); ctx.start = ctx.start.toString(); ctx.end = ctx.end.toString();"
       }
     },
     {

@@ -46,7 +46,7 @@
             "type":"keyword"
           },
           "duration":{
-            "type":"float"
+            "type":"integer"
           },
           "geoip"  : {
             "dynamic": true,

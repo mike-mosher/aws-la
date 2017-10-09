@@ -2,6 +2,11 @@
   "description" : "Ingest pipeline for AWS ELB Access Logs",
   "processors" : [
     {
+      "trim": {
+        "field": "message"
+      }
+    },
+    {
       "grok": {
         "field": "message",
         "patterns":

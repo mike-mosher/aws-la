@@ -136,7 +136,7 @@ def processFiles(f):
 
     for log_line in f:
         # Create the body and sanitize
-        source = {"message": log_line.replace('"', "::").strip('\n') }
+        source = {"message": log_line.strip('\n') }
         body = {"_index": options.index_name, "_type": options.index_name, "pipeline": options.index_name, "_source": source }
 
         # append record to list before bulk send to ES
@@ -333,18 +333,17 @@ createIndexAndMapping()
 putIngestPipeline()
 
 # Create a new index-pattern in .kibana index
-# createKibanaIndexIndexPattern()
+createKibanaIndexIndexPattern()
 
 # Set new index-pattern to default index
-# setKibanaIndexDefaultIndex()
+setKibanaIndexDefaultIndex()
 
 # delete useless index-patterns in .kibana index that we will never use
-# deleteKibanaIndexIndexPatterns()
+deleteKibanaIndexIndexPatterns()
 
 # Import search / visualizations / dashboards into Kibana
 # we will be returned the dashboard ID, so that we can put it in the URL at the end
-# DashboardId = importObjectsToKibana()
-DashboardId = ""
+DashboardId = importObjectsToKibana()
 
 # Load files into ES
 loadFiles()

@@ -215,11 +215,6 @@ def loadFiles():
                         with open(root + '/' + log_file, 'rb') as f:
                             print "Importing log file: ", root + "/" + log_file
                             processFiles(f)
-                    if log_file_extension == '': # apache logs
-
-                        with open(root + '/' + log_file, 'rb') as f:
-                            print "Importing log file: ", root + "/" + log_file
-                            processFiles(f)
 
                     else:
                         # don't know how we got here, but just in case

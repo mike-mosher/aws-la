@@ -11,7 +11,7 @@
         "field": "message",
         "patterns":
           [
-            "^%{DATA:connection_type} %{TIMESTAMP_ISO8601:timestamp} %{DATA:alb_node} (?:-|%{IPV4:client_ip_adress}:%{NUMBER:client_port}) (?:-|%{IPV4:target_ip_adress}:%{NUMBER:target_port}|%{DATA:target_group_name}) (?:-1|%{BASE10NUM:request_processing_time}) (?:-1|%{BASE10NUM:target_processing_time}) (?:-1|%{BASE10NUM:response_processing_time}) (?:-|%{DATA:alb_status_code:int}) (?:-|%{DATA:target_status_code:int}) %{NONNEGINT:received_bytes} %{NONNEGINT:sent_bytes} (?:\"- - - \"|%{QS:request}) (?:-|%{QS:agent}) (?:-|%{DATA:ssl_cipher}) (?:-|%{DATA:ssl_protocol}) (?:-|%{DATA:target_group_arn}) (?:-|%{QS:trace_id})$"
+            "^%{DATA:connection_type} %{TIMESTAMP_ISO8601:timestamp} %{DATA:alb_node} (?:-|%{IPV4:client_ip_address}:%{NUMBER:client_port}) (?:-|%{IPV4:target_ip_address}:%{NUMBER:target_port}|%{DATA:target_group_name}) (?:-1|%{BASE10NUM:request_processing_time}) (?:-1|%{BASE10NUM:target_processing_time}) (?:-1|%{BASE10NUM:response_processing_time}) (?:-|%{DATA:alb_status_code:int}) (?:-|%{DATA:target_status_code:int}) %{NONNEGINT:received_bytes} %{NONNEGINT:sent_bytes} (?:\"- - - \"|%{QS:request}) (?:-|%{QS:agent}) (?:-|%{DATA:ssl_cipher}) (?:-|%{DATA:ssl_protocol}) (?:-|%{DATA:target_group_arn}) (?:-|%{QS:trace_id})$"
           ]
       }
     },
@@ -52,7 +52,7 @@
     },
     {
       "geoip": {
-        "field": "client_ip_adress",
+        "field": "client_ip_address",
         "ignore_missing": true
       }
     },

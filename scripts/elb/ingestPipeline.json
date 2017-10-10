@@ -11,7 +11,7 @@
         "field": "message",
         "patterns":
           [
-            "^%{TIMESTAMP_ISO8601:timestamp} %{DATA:elb_node} (?:-|%{IPV4:client_ip_adress}:%{NUMBER:client_port}) (?:-|%{IPV4:backend_ip_adress}:%{NUMBER:backend_port}) (?:-1|%{BASE10NUM:request_processing_time}) (?:-1|%{BASE10NUM:backend_processing_time}) (?:-1|%{BASE10NUM:response_processing_time}) (?:-|%{DATA:elb_status_code:int}) (?:-|%{DATA:backend_status_code:int}) %{NONNEGINT:received_bytes} %{NONNEGINT:sent_bytes} (?:\"- - - \"|%{QS:request}) (?:-|%{QS:agent}) (?:-|%{DATA:ssl_cipher}) (?:-|%{DATA:ssl_protocol})$"
+            "^%{TIMESTAMP_ISO8601:timestamp} %{DATA:elb_node} (?:-|%{IPV4:client_ip_address}:%{NUMBER:client_port}) (?:-|%{IPV4:backend_ip_address}:%{NUMBER:backend_port}) (?:-1|%{BASE10NUM:request_processing_time}) (?:-1|%{BASE10NUM:backend_processing_time}) (?:-1|%{BASE10NUM:response_processing_time}) (?:-|%{DATA:elb_status_code:int}) (?:-|%{DATA:backend_status_code:int}) %{NONNEGINT:received_bytes} %{NONNEGINT:sent_bytes} (?:\"- - - \"|%{QS:request}) (?:-|%{QS:agent}) (?:-|%{DATA:ssl_cipher}) (?:-|%{DATA:ssl_protocol})$"
           ]
       }
     },
@@ -43,7 +43,7 @@
     },
     {
       "geoip": {
-        "field": "client_ip_adress",
+        "field": "client_ip_address",
         "ignore_missing": true
       }
     },

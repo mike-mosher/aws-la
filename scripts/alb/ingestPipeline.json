@@ -2,57 +2,57 @@
   "description" : "Ingest pipeline for AWS ALB Access Logs",
   "processors" : [
     {
+      "trim": {
+        "field": "message"
+      }
+    },
+    {
       "grok": {
         "field": "message",
         "patterns":
           [
-            "%{DATA:connection_type} %{TIMESTAMP_ISO8601:timestamp} %{DATA:alb_node} %{IP_PORT:client_ip_port} %{IP_PORT:target_ip_port} %{LATENCY:request_processing_time} %{LATENCY:target_processing_time} %{LATENCY:response_processing_time} %{DATA:alb_status_code} %{DATA:target_status_code} %{NONNEGINT:received_bytes} %{NONNEGINT:sent_bytes} ::%{REQUEST:request}:: ::%{GREEDYDATA:agent}:: %{DATA:ssl_cipher} %{GREEDYDATA:ssl_protocol} %{DATA:target_group_arn} ::%{DATA:trace_id}::"
-          ],
-        "pattern_definitions":
-          {
-            "NONVALID_FIELD" : "-",
-            "NONVALID_NEGING_FIELD" : "-1",
-            "VALID_IP_PORT" : "%{IPV4}:%{NUMBER}",
-            "IP_PORT" : "%{VALID_IP_PORT}|%{NONVALID_FIELD}|%{DATA}",
-            "LATENCY" : "%{BASE10NUM}|%{NONVALID_NEGING_FIELD}",
-            "TCP_REQUEST" : "- - - ",
-            "REQUEST" : "%{TCP_REQUEST}|%{GREEDYDATA}"
-          }
-      }
-    },
-    {
-      "grok": {
-        "field": "client_ip_port",
-        "ignore_missing": true,
-        "patterns":
-          [
-            "%{IPV4:client_ip_adress}:%{NUMBER:client_port}", "-", ""
+            "^%{DATA:connection_type} %{TIMESTAMP_ISO8601:timestamp} %{DATA:alb_node} (?:-|%{IPV4:client_ip_address}:%{NUMBER:client_port}) (?:-|%{IPV4:target_ip_address}:%{NUMBER:target_port}|%{DATA:target_group_name}) (?:-1|%{BASE10NUM:request_processing_time}) (?:-1|%{BASE10NUM:target_processing_time}) (?:-1|%{BASE10NUM:response_processing_time}) (?:-|%{DATA:alb_status_code:int}) (?:-|%{DATA:target_status_code:int}) %{NONNEGINT:received_bytes} %{NONNEGINT:sent_bytes} (?:\"- - - \"|%{QS:request}) (?:-|%{QS:agent}) (?:-|%{DATA:ssl_cipher}) (?:-|%{DATA:ssl_protocol}) (?:-|%{DATA:target_group_arn}) (?:-|%{QS:trace_id})$"
           ]
       }
     },
     {
-      "grok": {
-        "field": "target_ip_port",
-        "ignore_missing": true,
-        "patterns":
-          [
-            "%{IPV4:target_ip_adress}:%{NUMBER:target_port}", "-", "%{DATA:target_group_name}", ""
-          ]
+      "gsub": {
+        "field": "request",
+        "pattern": "\"",
+        "replacement": "",
+        "ignore_failure" : true
+      }
+    },
+    {
+      "gsub": {
+        "field": "agent",
+        "pattern": "\"",
+        "replacement": "",
+        "ignore_failure" : true
+      }
+    },
+    {
+      "gsub": {
+        "field": "trace_id",
+        "pattern": "\"",
+        "replacement": "",
+        "ignore_failure" : true
       }
     },
     {
       "grok": {
         "field": "request",
         "ignore_missing": true,
+        "ignore_failure" : true,
         "patterns":
           [
-            "^%{WORD:request_verb} %{GREEDYDATA:request_url} %{DATA:request_proto}$", "- - - ", "-", ""
+            "^%{WORD:request_verb} %{GREEDYDATA:request_url} HTTP/%{DATA:request_proto}$"
           ]
       }
     },
     {
       "geoip": {
-        "field": "client_ip_adress",
+        "field": "client_ip_address",
         "ignore_missing": true
       }
     },
@@ -60,93 +60,6 @@
       "user_agent": {
         "field": "agent",
         "ignore_missing": true
-      }
-    },
-    {
-      "gsub": {
-        "field": "request_processing_time",
-        "pattern": "-1",
-        "replacement": "0"
-      }
-    },
-    {
-      "gsub": {
-        "field": "target_processing_time",
-        "pattern": "-1",
-        "replacement": "0"
-      }
-    },
-    {
-      "gsub": {
-        "field": "response_processing_time",
-        "pattern": "-1",
-        "replacement": "0"
-      }
-    },
-    {
-      "gsub": {
-        "field": "alb_status_code",
-        "pattern": "-",
-        "replacement": "0"
-      }
-    },
-    {
-      "gsub": {
-        "field": "target_status_code",
-        "pattern": "-",
-        "replacement": "0"
-      }
-    },
-    {
-      "gsub": {
-        "field": "request",
-        "pattern": "- - - ",
-        "replacement": ""
-      }
-    },
-    {
-      "gsub": {
-        "field": "agent",
-        "pattern": "-",
-        "replacement": ""
-      }
-    },
-    {
-      "gsub": {
-        "field": "ssl_cipher",
-        "pattern": "-",
-        "replacement": ""
-      }
-    },
-    {
-      "gsub": {
-        "field": "ssl_protocol",
-        "pattern": "-",
-        "replacement": ""
-      }
-    },
-    {
-      "gsub": {
-        "field": "target_group_arn",
-        "pattern": "-",
-        "replacement": ""
-      }
-    },
-    {
-      "gsub": {
-        "field": "trace_id",
-        "pattern": "-",
-        "replacement": ""
-      }
-    },
-    {
-      "remove": {
-        "field": "client_ip_port"
-      }
-    },
-    {
-      "remove": {
-        "field": "target_ip_port"
       }
     }
   ]

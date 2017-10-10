@@ -136,7 +136,7 @@ def processFiles(f):
 
     for log_line in f:
         # Create the body and sanitize
-        source = {"message": log_line.replace('"', "::").strip('\n') }
+        source = {"message": log_line.strip('\n') }
         body = {"_index": options.index_name, "_type": options.index_name, "pipeline": options.index_name, "_source": source }
 
         # append record to list before bulk send to ES
@@ -202,7 +202,7 @@ def loadFiles():
             for log_file in files:
                 if log_file.endswith(log_file_extension):
 
-                    # some logs are uncompressed (*.log) and others compressed (*.gz)
+                    # some logs are uncompressed (*.log) and others compressed (*.gz) (and apache logs have no file extension!)
                     # Need to unpack them and send them to be processed
                     if log_file_extension == '.gz':
                         with gzip.open(root + '/' + log_file, 'rb') as f:
@@ -232,7 +232,21 @@ def loadFiles():
 
 #Input Parsing
 parser = optparse.OptionParser(
-                    usage="Send AWS logs to a local dockerized Elasticsearch cluster\n\nRequired fields:\n--logdir\n--logtype\n\nValid options for log type:\nelb      # ELB access logs\nalb      # ALB access logs\nvpc      # VPC flow logs\nr53      # Route53 query logs\n",
+                                usage="""
+
+Send AWS logs to a local dockerized Elasticsearch cluster
+
+Required fields:
+--logdir
+--logtype
+
+Valid options for log type:
+elb          # ELB access logs
+alb          # ALB access logs
+vpc          # VPC flow logs
+r53          # Route53 query logs
+apache       # apache access logs\n
+                                """,
                     version="0.1"
                   )
 
@@ -269,18 +283,27 @@ if options.logtype == 'elb':
     options.index_name = 'elb_logs'
     options.script_dir = 'scripts/elb/'
     log_file_extension = '.log'
+
 elif options.logtype == 'alb':
     options.index_name = 'alb_logs'
     options.script_dir = 'scripts/alb/'
     log_file_extension = '.gz'
+
 elif options.logtype == 'vpc':
     options.index_name = 'vpc_flowlogs'
     options.script_dir = 'scripts/vpc/'
     log_file_extension = '.gz'
+
 elif options.logtype == 'r53':
     options.index_name = 'r53_query_logs'
     options.script_dir = 'scripts/r53/'
     log_file_extension = '.gz'
+
+elif options.logtype == 'apache':
+    options.index_name = 'apache_access_logs'
+    options.script_dir = 'scripts/apache/'
+    log_file_extension = ''
+
 else:
     parser.error('input for --logtype is not a valid option.  Use \'--help\' for a list of options')
 

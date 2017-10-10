@@ -6,63 +6,13 @@
         "field": "message",
         "patterns":
           [
-            "^%{TIMESTAMP_ISO8601:timestamp} %{NONNEGINT:version} %{DATA:account-id} %{DATA:interface-id} %{VPC_IP:source_ip_addr} %{VPC_IP:dest_ip_addr} %{VPC_NUMBER:source_port} %{VPC_NUMBER:dest_port} %{VPC_NUMBER:protocol} %{VPC_NUMBER:packets} %{VPC_NUMBER:bytes} %{NONNEGINT:start} %{NONNEGINT:end} %{DATA:action} %{DATA:log-status}$"
-          ],
-        "pattern_definitions":
-          {
-            "NONVALID_FIELD" : "-",
-            "VPC_IP" : "%{NONVALID_FIELD}|%{IPV4}",
-            "VPC_NUMBER" : "%{NONVALID_FIELD}|%{NUMBER}"
-          }
-      }
-    },
-    {
-      "grok": {
-        "field": "source_ip_addr",
-        "ignore_missing": true,
-        "patterns":
-          [
-            "%{IPV4:source_ip_address}", "-", ""
+            "^%{TIMESTAMP_ISO8601:timestamp} %{NONNEGINT:version} %{DATA:account-id} %{DATA:interface-id} (?:-|%{IPV4:source_ip_address}) (?:-|%{IPV4:dest_ip_address}) (?:-|%{NUMBER:source_port}) (?:-|%{NUMBER:dest_port}) (?:-|%{NUMBER:protocol}) (?:-|%{NUMBER:packets}) (?:-|%{NUMBER:bytes}) %{NONNEGINT:start:int} %{NONNEGINT:end:int} %{DATA:action} %{DATA:log-status}$"
           ]
-      }
-    },
-    {
-      "grok": {
-        "field": "dest_ip_addr",
-        "ignore_missing": true,
-        "patterns":
-          [
-            "%{IPV4:dest_ip_address}", "-", ""
-          ]
-      }
-    },
-    {
-      "convert": {
-        "field" : "start",
-        "type": "integer"
-      }
-    },
-    {
-      "convert": {
-        "field" : "end",
-        "type": "integer"
       }
     },
     {
       "script": {
-        "inline": "ctx.duration = (ctx.end - ctx.start) / 60"
-      }
-    },
-    {
-      "convert": {
-        "field" : "start",
-        "type": "string"
-      }
-    },
-    {
-      "convert": {
-        "field" : "end",
-        "type": "string"
+        "inline": "ctx.duration = (ctx.end - ctx.start); ctx.start = ctx.start.toString(); ctx.end = ctx.end.toString();"
       }
     },
     {
@@ -80,6 +30,12 @@
       }
     },
     {
+      "geoip": {
+        "field": "source_ip_address",
+        "ignore_missing": true
+      }
+    },
+    {
       "remove": {
         "field": "start"
       }
@@ -87,57 +43,6 @@
     {
       "remove": {
         "field": "end"
-      }
-    },
-    {
-      "remove": {
-        "field": "source_ip_addr"
-      }
-    },
-    {
-      "remove": {
-        "field": "dest_ip_addr"
-      }
-    },
-    {
-      "gsub": {
-        "field": "source_port",
-        "pattern": "-",
-        "replacement": ""
-      }
-    },
-    {
-      "gsub": {
-        "field": "dest_port",
-        "pattern": "-",
-        "replacement": ""
-      }
-    },
-    {
-      "gsub": {
-        "field": "protocol",
-        "pattern": "-",
-        "replacement": ""
-      }
-    },
-    {
-      "gsub": {
-        "field": "packets",
-        "pattern": "-",
-        "replacement": ""
-      }
-    },
-    {
-      "gsub": {
-        "field": "bytes",
-        "pattern": "-",
-        "replacement": ""
-      }
-    },
-    {
-      "geoip": {
-        "field": "source_ip_address",
-        "ignore_missing": true
       }
     }
   ]

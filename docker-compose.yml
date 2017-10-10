@@ -31,3 +31,4 @@ services:
     depends_on: ['elasticsearch']
 networks:
   elk-stack:
+

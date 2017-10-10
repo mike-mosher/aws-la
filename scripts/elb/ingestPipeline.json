@@ -2,42 +2,33 @@
   "description" : "Ingest pipeline for AWS ELB Access Logs",
   "processors" : [
     {
+      "trim": {
+        "field": "message"
+      }
+    },
+    {
       "grok": {
         "field": "message",
         "patterns":
           [
-            "%{TIMESTAMP_ISO8601:timestamp} %{DATA:elb_node} %{IP_PORT:client_ip_port} %{IP_PORT:backend_ip_port} %{LATENCY:request_processing_time} %{LATENCY:backend_processing_time} %{LATENCY:response_processing_time} %{DATA:elb_status_code} %{DATA:backend_status_code} %{NONNEGINT:received_bytes} %{NONNEGINT:sent_bytes} ::%{REQUEST:request}:: ::%{GREEDYDATA:agent}:: %{DATA:ssl_cipher} %{GREEDYDATA:ssl_protocol}"
-          ],
-        "pattern_definitions":
-          {
-            "NONVALID_FIELD" : "-",
-            "NONVALID_NEGING_FIELD" : "-1",
-            "VALID_IP_PORT" : "%{IPV4}:%{NUMBER}",
-            "IP_PORT" : "%{VALID_IP_PORT}|%{NONVALID_FIELD}",
-            "LATENCY" : "%{BASE10NUM}|%{NONVALID_NEGING_FIELD}",
-            "TCP_REQUEST" : "- - - ",
-            "REQUEST" : "%{TCP_REQUEST}|%{GREEDYDATA}"
-          }
-      }
-    },
-    {
-      "grok": {
-        "field": "client_ip_port",
-        "ignore_missing": true,
-        "patterns":
-          [
-            "%{IPV4:client_ip_adress}:%{NUMBER:client_port}", "-", ""
+            "^%{TIMESTAMP_ISO8601:timestamp} %{DATA:elb_node} (?:-|%{IPV4:client_ip_address}:%{NUMBER:client_port}) (?:-|%{IPV4:backend_ip_address}:%{NUMBER:backend_port}) (?:-1|%{BASE10NUM:request_processing_time}) (?:-1|%{BASE10NUM:backend_processing_time}) (?:-1|%{BASE10NUM:response_processing_time}) (?:-|%{DATA:elb_status_code:int}) (?:-|%{DATA:backend_status_code:int}) %{NONNEGINT:received_bytes} %{NONNEGINT:sent_bytes} (?:\"- - - \"|%{QS:request}) (?:-|%{QS:agent}) (?:-|%{DATA:ssl_cipher}) (?:-|%{DATA:ssl_protocol})$"
           ]
       }
     },
     {
-      "grok": {
-        "field": "backend_ip_port",
-        "ignore_missing": true,
-        "patterns":
-          [
-            "%{IPV4:backend_ip_adress}:%{NUMBER:backend_port}", "-", ""
-          ]
+      "gsub": {
+        "field": "request",
+        "pattern": "\"",
+        "replacement": "",
+        "ignore_failure" : true
+      }
+    },
+    {
+      "gsub": {
+        "field": "agent",
+        "pattern": "\"",
+        "replacement": "",
+        "ignore_failure" : true
       }
     },
     {
@@ -46,13 +37,13 @@
         "ignore_missing": true,
         "patterns":
           [
-            "^%{WORD:request_verb} %{GREEDYDATA:request_url} %{DATA:request_proto}$", "- - - ", ""
+            "^%{WORD:request_verb} %{GREEDYDATA:request_url} HTTP/%{DATA:request_proto}$"
           ]
       }
     },
     {
       "geoip": {
-        "field": "client_ip_adress",
+        "field": "client_ip_address",
         "ignore_missing": true
       }
     },
@@ -60,91 +51,6 @@
       "user_agent": {
         "field": "agent",
         "ignore_missing": true
-      }
-    },
-    {
-      "gsub": {
-        "field": "request_processing_time",
-        "pattern": "-1",
-        "replacement": "0"
-      }
-    },
-    {
-      "gsub": {
-        "field": "backend_processing_time",
-        "pattern": "-1",
-        "replacement": "0"
-      }
-    },
-    {
-      "gsub": {
-        "field": "response_processing_time",
-        "pattern": "-1",
-        "replacement": "0"
-      }
-    },
-    {
-      "gsub": {
-        "field": "elb_status_code",
-        "pattern": "-",
-        "replacement": "0"
-      }
-    },
-    {
-      "gsub": {
-        "field": "backend_status_code",
-        "pattern": "-",
-        "replacement": "0"
-      }
-    },
-    {
-      "gsub": {
-        "field": "request",
-        "pattern": "- - - ",
-        "replacement": ""
-      }
-    },
-    {
-      "gsub": {
-        "field": "agent",
-        "pattern": "-",
-        "replacement": ""
-      }
-    },
-    {
-      "gsub": {
-        "field": "ssl_cipher",
-        "pattern": "-",
-        "replacement": ""
-      }
-    },
-    {
-      "gsub": {
-        "field": "ssl_protocol",
-        "pattern": "-",
-        "replacement": ""
-      }
-    },
-    {
-      "convert": {
-        "field" : "elb_status_code",
-        "type": "integer"
-      }
-    },
-    {
-      "convert": {
-        "field" : "backend_status_code",
-        "type": "integer"
-      }
-    },
-    {
-      "remove": {
-        "field": "client_ip_port"
-      }
-    },
-    {
-      "remove": {
-        "field": "backend_ip_port"
       }
     }
   ]

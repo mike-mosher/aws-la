@@ -205,12 +205,18 @@ def loadFiles():
                     # some logs are uncompressed (*.log) and others compressed (*.gz) (and apache logs have no file extension!)
                     # Need to unpack them and send them to be processed
                     if log_file_extension == '.gz':
-                        with gzip.open(root + '/' + log_file, 'rb') as f:
 
+                        with gzip.open(root + '/' + log_file, 'rb') as f:
                             print "Importing log file: ", root + "/" + log_file
                             processFiles(f)
 
                     elif log_file_extension == '.log':
+
+                        with open(root + '/' + log_file, 'rb') as f:
+                            print "Importing log file: ", root + "/" + log_file
+                            processFiles(f)
+
+                    elif log_file_extension == '':
 
                         with open(root + '/' + log_file, 'rb') as f:
                             print "Importing log file: ", root + "/" + log_file
@@ -328,17 +334,17 @@ createIndexAndMapping()
 putIngestPipeline()
 
 # Create a new index-pattern in .kibana index
-createKibanaIndexIndexPattern()
+# createKibanaIndexIndexPattern()
 
 # Set new index-pattern to default index
-setKibanaIndexDefaultIndex()
+# setKibanaIndexDefaultIndex()
 
 # delete useless index-patterns in .kibana index that we will never use
-deleteKibanaIndexIndexPatterns()
+# deleteKibanaIndexIndexPatterns()
 
 # Import search / visualizations / dashboards into Kibana
 # we will be returned the dashboard ID, so that we can put it in the URL at the end
-DashboardId = importObjectsToKibana()
+# DashboardId = importObjectsToKibana()
 
 # Load files into ES
 loadFiles()

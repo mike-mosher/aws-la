@@ -1,0 +1,27 @@
+{
+  "description" : "Test",
+  "processors" : [
+    {
+      "grok": {
+        "field": "message",
+        "patterns":
+          [
+            "^%{COMBINEDAPACHELOG}$",
+            "^%{IPORHOST:x-forwarded-for-ip-address} %{COMBINEDAPACHELOG}$"
+          ]
+      }
+    },
+    {
+      "geoip": {
+        "field": "clientip",
+        "ignore_missing": true
+      }
+    },
+    {
+      "geoip": {
+        "field": "x-forwarded-for-ip-address",
+        "ignore_missing": true
+      }
+    }
+  ]
+}

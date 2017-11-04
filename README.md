@@ -1,4 +1,4 @@
-# AWS Logs to Docker ELK
+# AWS-LA (AWS Log Analyser)
 
 ## Description
 

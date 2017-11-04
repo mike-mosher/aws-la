@@ -1,4 +1,4 @@
-# AWS-LA (AWS Log Analyser)
+# AWS-LA (AWS Log Analyzer)
 
 ## Description
 

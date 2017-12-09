@@ -6,13 +6,13 @@
           "elb_node":{
             "type":"keyword"
           },
-          "client_ip_adress":{
+          "client_ip_address":{
             "type":"ip"
           },
           "client_port":{
             "type":"integer"
           },
-          "backend_ip_adress":{
+          "backend_ip_address":{
             "type":"ip"
           },
           "backend_port":{

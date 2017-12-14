@@ -346,6 +346,9 @@ putIngestPipeline()
 # we will be returned the dashboard ID, so that we can put it in the URL at the end
 # DashboardId = importObjectsToKibana()
 
+# test
+DashboardId = ""
+
 # Load files into ES
 loadFiles()
 

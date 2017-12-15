@@ -1,0 +1,5 @@
+TODO: Apache:
+
+- I can import access_log, but need to be able to import logrotate rotated files (*.gz)
+- also need to be able to distinguish between the two (are we loding an access_log file, or folder of gz files)
+- Need to create the dashboard

@@ -3,7 +3,6 @@
     "mappings" : {
       "alb_logs" : {
         "properties":{
-
           "connection_type":{
             "type":"keyword"
           },

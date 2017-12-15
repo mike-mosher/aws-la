@@ -55,7 +55,7 @@ def putIngestPipeline():
 
     es.ingest.put_pipeline(id=options.index_name, body=pipeline)
 
-def createKibanaIndexIndexPattern():
+def createKibanaIndexPattern():
     print "Creating new index-pattern in .kibana index"
 
     # Create the index pattern
@@ -84,7 +84,7 @@ def createKibanaIndexIndexPattern():
 
                 r = requests.post(url, data=payload, headers=headers)
 
-def setKibanaIndexDefaultIndex():
+def setKibanaDefaultIndex():
     print "Setting index-pattern as default index"
 
     # Set the index as default
@@ -93,7 +93,7 @@ def setKibanaIndexDefaultIndex():
     headers = { 'kbn-version': '5.4.0' }
     r = requests.post(url, data=payload, headers=headers)
 
-def deleteKibanaIndexIndexPatterns():
+def deleteKibanaIndexPatterns():
     print "Deleting useless index-patterns in .kibana index"
 
     print "Deleting index-pattern: .ml-anomalies-*"
@@ -238,7 +238,7 @@ def loadFiles():
 
 #Input Parsing
 parser = optparse.OptionParser(
-                                usage="""
+                  usage="""
 
 Send AWS logs to a local dockerized Elasticsearch cluster
 
@@ -253,7 +253,7 @@ vpc          # VPC flow logs
 r53          # Route53 query logs
 apache       # apache access logs\n
                                 """,
-                    version="0.1"
+                  version="0.1"
                   )
 
 parser.add_option('-d',
@@ -334,20 +334,17 @@ createIndexAndMapping()
 putIngestPipeline()
 
 # Create a new index-pattern in .kibana index
-# createKibanaIndexIndexPattern()
+createKibanaIndexPattern()
 
 # Set new index-pattern to default index
-# setKibanaIndexDefaultIndex()
+setKibanaDefaultIndex()
 
 # delete useless index-patterns in .kibana index that we will never use
-# deleteKibanaIndexIndexPatterns()
+deleteKibanaIndexPatterns()
 
 # Import search / visualizations / dashboards into Kibana
 # we will be returned the dashboard ID, so that we can put it in the URL at the end
-# DashboardId = importObjectsToKibana()
-
-# test
-DashboardId = ""
+DashboardId = importObjectsToKibana()
 
 # Load files into ES
 loadFiles()

@@ -247,11 +247,12 @@ Required fields:
 --logtype
 
 Valid options for log type:
-elb          # ELB access logs
-alb          # ALB access logs
-vpc          # VPC flow logs
-r53          # Route53 query logs
-apache       # apache access logs\n
+elb                 # ELB access logs
+alb                 # ALB access logs
+vpc                 # VPC flow logs
+r53                 # Route53 query logs
+apache              # apache access log ('access_log')
+apache_archives     # apache access logs (gunzip compressed with logrotate)\n
                                 """,
                   version="0.1"
                   )
@@ -309,6 +310,11 @@ elif options.logtype == 'apache':
     options.index_name = 'apache_access_logs'
     options.script_dir = 'scripts/apache/'
     log_file_extension = ''
+
+elif options.logtype == 'apache_archives':
+    options.index_name = 'apache_access_logs'
+    options.script_dir = 'scripts/apache/'
+    log_file_extension = '.gz'
 
 else:
     parser.error('input for --logtype is not a valid option.  Use \'--help\' for a list of options')

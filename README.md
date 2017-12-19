@@ -15,7 +15,7 @@ These scripts allow you to easily import various AWS log types into an Elasticse
 ## Future Log Types Supported
 
 - Cloudtrail audit logs
-- Cloufront access logs
+- Cloudfront access logs
 - S3 access logs
 - Others to come!
 

@@ -21,7 +21,7 @@ These scripts allow you to easily import various AWS log types into an Elasticse
 
 ## Steps Automated
 
-The scripts configure everything that is needed in the ELK stack:
+The script configures everything that is needed in the ELK stack:
 
 - Elasticsearch:
 
@@ -41,7 +41,7 @@ The scripts configure everything that is needed in the ELK stack:
 - Install [Docker for Windows][docker-for-windows] or [Docker for Mac][docker-for-mac]
 - Clone this git repository:
 
-  `git clone https://github.com/mike-mosher/AWS-Logs-to-Docker-ELK.git && cd AWS-Logs-to-Docker-ELK`
+  `git clone https://github.com/mike-mosher/aws-la.git && cd aws-la`
 
 - Install requirements:
 
@@ -68,10 +68,12 @@ The scripts configure everything that is needed in the ELK stack:
 - Valid log types are specified by running the `--help` argument. Currently, the valid logtypes are the following:
 
   ```
-  --logtype elb
-  --logtype alb
-  --logtype vpc
-  --logtype r53
+  elb                 # ELB access logs
+  alb                 # ALB access logs
+  vpc                 # VPC flow logs
+  r53                 # Route53 query logs
+  apache              # apache access log ('access_log')
+  apache_archives     # apache access logs (gunzip compressed with logrotate)
   ```
 
 - Browse to the link provided in the output by using `cmd + double-click`, or browse directly to the default Kibana page:

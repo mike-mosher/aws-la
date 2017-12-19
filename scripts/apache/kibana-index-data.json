@@ -1,0 +1,250 @@
+{
+  "took" : 3,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 14,
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : ".kibana",
+        "_type" : "index-pattern",
+        "_id" : "apache_access_logs",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "apache_access_logs",
+          "timeFieldName" : "@timestamp",
+          "fields" : "[{\"name\":\"agent\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"auth\",\"type\":\"string\",\"count\":1,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"ident\",\"type\":\"string\",\"count\":1,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.region_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"user_agent.patch\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"user_agent.os_minor\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"user_agent.os_major\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"geoip.country_iso_code.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"clientip\",\"type\":\"ip\",\"count\":1,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.city_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"user_agent.os.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.continent_name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"geoip.longitude\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":false,\"aggregatable\":false},{\"name\":\"user_agent.device.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"verb\",\"type\":\"string\",\"count\":1,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.region_name\",\"type\":\"string\",\"count\":1,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"user_agent.name\",\"type\":\"string\",\"count\":1,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"user_agent.patch.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"user_agent.os_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"message.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"user_agent.os_major.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.country_iso_code\",\"type\":\"string\",\"count\":1,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"geoip.latitude\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":false,\"aggregatable\":false},{\"name\":\"user_agent.major.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"_source\",\"type\":\"_source\",\"count\":0,\"scripted\":false,\"indexed\":false,\"analyzed\":false,\"doc_values\":false,\"searchable\":false,\"aggregatable\":false},{\"name\":\"request\",\"type\":\"string\",\"count\":1,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"user_agent.os_name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"x-forwarded-for-ip-address\",\"type\":\"ip\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":false,\"aggregatable\":false},{\"name\":\"user_agent.name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.ip\",\"type\":\"ip\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":false,\"aggregatable\":false},{\"name\":\"user_agent.os_minor.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.continent_name.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"geoip.location\",\"type\":\"geo_point\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"user_agent.minor.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"user_agent.minor\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"user_agent.major\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"geoip.city_name\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"message\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"referrer\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"@timestamp\",\"type\":\"date\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"user_agent.os\",\"type\":\"string\",\"count\":1,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"response\",\"type\":\"number\",\"count\":1,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"bytes\",\"type\":\"number\",\"count\":1,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"user_agent.device\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":true,\"analyzed\":true,\"doc_values\":false,\"searchable\":true,\"aggregatable\":false},{\"name\":\"httpversion\",\"type\":\"string\",\"count\":1,\"scripted\":false,\"indexed\":true,\"analyzed\":false,\"doc_values\":true,\"searchable\":true,\"aggregatable\":true},{\"name\":\"_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":false,\"analyzed\":false,\"doc_values\":false,\"searchable\":false,\"aggregatable\":false},{\"name\":\"_type\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":false,\"analyzed\":false,\"doc_values\":false,\"searchable\":true,\"aggregatable\":true},{\"name\":\"_index\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"indexed\":false,\"analyzed\":false,\"doc_values\":false,\"searchable\":false,\"aggregatable\":false},{\"name\":\"_score\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"indexed\":false,\"analyzed\":false,\"doc_values\":false,\"searchable\":false,\"aggregatable\":false}]"
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "search",
+        "_id" : "a96123a0-e148-11e7-947c-d9505854b6f4",
+        "_score" : 1.0,
+        "_source" : {
+          "sort" : [
+            "@timestamp",
+            "desc"
+          ],
+          "hits" : 0,
+          "description" : "",
+          "title" : "Apache Access Logs Search",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"apache_access_logs\",\"highlightAll\":true,\"version\":true,\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          },
+          "columns" : [
+            "clientip",
+            "httpversion",
+            "verb",
+            "request",
+            "response",
+            "bytes",
+            "auth",
+            "ident",
+            "user_agent.os",
+            "user_agent.name",
+            "geoip.country_iso_code",
+            "geoip.region_name"
+          ]
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "0515bf80-e4be-11e7-8210-57eeca5e74ae",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Apache Date Histogram",
+          "visState" : "{\"title\":\"Apache Date Histogram\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"labels\":{\"show\":true,\"truncate\":100},\"position\":\"bottom\",\"scale\":{\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{\"text\":\"@timestamp per week\"},\"type\":\"category\"}],\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"interpolate\":\"linear\",\"legendPosition\":\"right\",\"radiusRatio\":9,\"scale\":\"linear\",\"seriesParams\":[{\"data\":{\"id\":\"1\",\"label\":\"Count\"},\"drawLinesBetweenPoints\":true,\"mode\":\"stacked\",\"show\":\"true\",\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"}],\"setYExtents\":false,\"showCircles\":true,\"times\":[],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"labels\":{\"filter\":false,\"rotate\":0,\"show\":true,\"truncate\":100},\"name\":\"LeftAxis-1\",\"position\":\"left\",\"scale\":{\"mode\":\"normal\",\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{},\"type\":\"value\"}]},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"apache_access_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "c56b9250-e4be-11e7-8210-57eeca5e74ae",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "UserAgent OS Name - Cloud Tag",
+          "visState" : "{\"title\":\"UserAgent OS Name - Cloud Tag\",\"type\":\"tagcloud\",\"params\":{\"scale\":\"linear\",\"orientation\":\"single\",\"minFontSize\":18,\"maxFontSize\":72},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"user_agent.os_name.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"apache_access_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "config",
+        "_id" : "5.4.0",
+        "_score" : 1.0,
+        "_source" : {
+          "buildNum" : 15063,
+          "defaultIndex" : "apache_access_logs",
+          "xPackMonitoring:allowReport" : true,
+          "xPackMonitoring:showBanner" : false
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "eba3a8e0-e4be-11e7-8210-57eeca5e74ae",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Client IP GeoLocation - Map",
+          "visState" : "{\"title\":\"Client IP GeoLocation - Map\",\"type\":\"tile_map\",\"params\":{\"mapType\":\"Scaled Circle Markers\",\"isDesaturated\":true,\"addTooltip\":true,\"heatMaxZoom\":0,\"heatMinOpacity\":0.1,\"heatRadius\":25,\"heatBlur\":15,\"heatNormalizeData\":true,\"legendPosition\":\"bottomright\",\"mapZoom\":2,\"mapCenter\":[0,0],\"wms\":{\"enabled\":false,\"url\":\"https://basemap.nationalmap.gov/arcgis/services/USGSTopo/MapServer/WMSServer\",\"options\":{\"version\":\"1.3.0\",\"layers\":\"0\",\"format\":\"image/png\",\"transparent\":true,\"attribution\":\"Maps provided by USGS\",\"styles\":\"\"}}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"geohash_grid\",\"schema\":\"segment\",\"params\":{\"field\":\"geoip.location\",\"autoPrecision\":true,\"useGeocentroid\":true,\"precision\":2}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"apache_access_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "6ac2f410-e4be-11e7-8210-57eeca5e74ae",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "HTTP Referrer - Table",
+          "visState" : "{\"title\":\"HTTP Referrer - Table\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"referrer\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"apache_access_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "735b1e40-e4be-11e7-8210-57eeca5e74ae",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "HTTP Request - Table",
+          "visState" : "{\"title\":\"HTTP Request - Table\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"request\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"apache_access_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "cfe574d0-e4be-11e7-8210-57eeca5e74ae",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "UserAgent Browser Name - Cloud Tag",
+          "visState" : "{\"title\":\"UserAgent Browser Name - Cloud Tag\",\"type\":\"tagcloud\",\"params\":{\"scale\":\"linear\",\"orientation\":\"single\",\"minFontSize\":18,\"maxFontSize\":72},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"user_agent.name.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"apache_access_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "e4d64910-e4bd-11e7-8210-57eeca5e74ae",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "HTTP Response Code - Pie Chart",
+          "visState" : "{\"title\":\"HTTP Response Code - Pie Chart\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"response\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"apache_access_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "cbe58ce0-e4bd-11e7-8210-57eeca5e74ae",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "HTTP Version - Pie Chart",
+          "visState" : "{\"title\":\"HTTP Version - Pie Chart\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"httpversion\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"apache_access_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "ab9eea80-e4bd-11e7-8210-57eeca5e74ae",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Client IP - Pie Chart",
+          "visState" : "{\"title\":\"Client IP - Pie Chart\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"clientip\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"apache_access_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "visualization",
+        "_id" : "d71a33e0-e4bd-11e7-8210-57eeca5e74ae",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "HTTP Verb - Pie Chart",
+          "visState" : "{\"title\":\"HTTP Verb - Pie Chart\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"bottom\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"verb\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+          "uiStateJSON" : "{}",
+          "description" : "",
+          "version" : 1,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"index\":\"apache_access_logs\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+          }
+        }
+      },
+      {
+        "_index" : ".kibana",
+        "_type" : "dashboard",
+        "_id" : "fbbfa710-e4be-11e7-a782-59528ea0b3a4",
+        "_score" : 1.0,
+        "_source" : {
+          "title" : "Apache Dashboard",
+          "hits" : 0,
+          "description" : "",
+          "panelsJSON" : "[{\"col\":1,\"id\":\"0515bf80-e4be-11e7-8210-57eeca5e74ae\",\"panelIndex\":1,\"row\":1,\"size_x\":12,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"ab9eea80-e4bd-11e7-8210-57eeca5e74ae\",\"panelIndex\":2,\"row\":4,\"size_x\":3,\"size_y\":5,\"type\":\"visualization\"},{\"col\":1,\"id\":\"e4d64910-e4bd-11e7-8210-57eeca5e74ae\",\"panelIndex\":3,\"row\":9,\"size_x\":3,\"size_y\":5,\"type\":\"visualization\"},{\"col\":4,\"id\":\"d71a33e0-e4bd-11e7-8210-57eeca5e74ae\",\"panelIndex\":4,\"row\":4,\"size_x\":3,\"size_y\":5,\"type\":\"visualization\"},{\"col\":4,\"id\":\"cbe58ce0-e4bd-11e7-8210-57eeca5e74ae\",\"panelIndex\":5,\"row\":9,\"size_x\":3,\"size_y\":5,\"type\":\"visualization\"},{\"col\":7,\"id\":\"6ac2f410-e4be-11e7-8210-57eeca5e74ae\",\"panelIndex\":6,\"row\":9,\"size_x\":6,\"size_y\":5,\"type\":\"visualization\"},{\"col\":7,\"id\":\"735b1e40-e4be-11e7-8210-57eeca5e74ae\",\"panelIndex\":7,\"row\":4,\"size_x\":6,\"size_y\":5,\"type\":\"visualization\"},{\"size_x\":12,\"size_y\":4,\"panelIndex\":8,\"type\":\"visualization\",\"id\":\"eba3a8e0-e4be-11e7-8210-57eeca5e74ae\",\"col\":1,\"row\":14},{\"size_x\":6,\"size_y\":3,\"panelIndex\":9,\"type\":\"visualization\",\"id\":\"cfe574d0-e4be-11e7-8210-57eeca5e74ae\",\"col\":7,\"row\":18},{\"size_x\":6,\"size_y\":3,\"panelIndex\":10,\"type\":\"visualization\",\"id\":\"c56b9250-e4be-11e7-8210-57eeca5e74ae\",\"col\":1,\"row\":18}]",
+          "optionsJSON" : "{\"darkTheme\":false}",
+          "uiStateJSON" : "{\"P-1\":{\"vis\":{\"legendOpen\":false}},\"P-7\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-6\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-8\":{\"mapZoom\":2,\"mapCenter\":[15.623036831528264,-0.17578125]}}",
+          "version" : 1,
+          "timeRestore" : false,
+          "kibanaSavedObjectMeta" : {
+            "searchSourceJSON" : "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+          }
+        }
+      }
+    ]
+  }
+}

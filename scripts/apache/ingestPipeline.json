@@ -1,0 +1,44 @@
+{
+  "description" : "Ingest pipeline for Apache Access Logs",
+  "processors" : [
+    {
+      "grok": {
+        "field": "message",
+        "patterns":
+          [
+            "^%{COMBINEDAPACHELOG}$",
+            "^%{IPORHOST:x-forwarded-for-ip-address} %{COMBINEDAPACHELOG}$"
+          ]
+      }
+    },
+    {
+      "date" : {
+        "field" : "timestamp",
+        "formats" : ["dd/MMM/yyyy:HH:mm:ss Z"]
+      }
+    },
+    {
+      "user_agent": {
+        "field": "agent",
+        "ignore_missing": true
+      }
+    },
+    {
+      "geoip": {
+        "field": "clientip",
+        "ignore_missing": true
+      }
+    },
+    {
+      "geoip": {
+        "field": "x-forwarded-for-ip-address",
+        "ignore_missing": true
+      }
+    },
+    {
+      "remove": {
+        "field": "timestamp"
+      }
+    }
+  ]
+}

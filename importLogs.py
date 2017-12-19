@@ -55,7 +55,7 @@ def putIngestPipeline():
 
     es.ingest.put_pipeline(id=options.index_name, body=pipeline)
 
-def createKibanaIndexIndexPattern():
+def createKibanaIndexPattern():
     print "Creating new index-pattern in .kibana index"
 
     # Create the index pattern
@@ -84,7 +84,7 @@ def createKibanaIndexIndexPattern():
 
                 r = requests.post(url, data=payload, headers=headers)
 
-def setKibanaIndexDefaultIndex():
+def setKibanaDefaultIndex():
     print "Setting index-pattern as default index"
 
     # Set the index as default
@@ -93,7 +93,7 @@ def setKibanaIndexDefaultIndex():
     headers = { 'kbn-version': '5.4.0' }
     r = requests.post(url, data=payload, headers=headers)
 
-def deleteKibanaIndexIndexPatterns():
+def deleteKibanaIndexPatterns():
     print "Deleting useless index-patterns in .kibana index"
 
     print "Deleting index-pattern: .ml-anomalies-*"
@@ -205,12 +205,18 @@ def loadFiles():
                     # some logs are uncompressed (*.log) and others compressed (*.gz) (and apache logs have no file extension!)
                     # Need to unpack them and send them to be processed
                     if log_file_extension == '.gz':
-                        with gzip.open(root + '/' + log_file, 'rb') as f:
 
+                        with gzip.open(root + '/' + log_file, 'rb') as f:
                             print "Importing log file: ", root + "/" + log_file
                             processFiles(f)
 
                     elif log_file_extension == '.log':
+
+                        with open(root + '/' + log_file, 'rb') as f:
+                            print "Importing log file: ", root + "/" + log_file
+                            processFiles(f)
+
+                    elif log_file_extension == '':
 
                         with open(root + '/' + log_file, 'rb') as f:
                             print "Importing log file: ", root + "/" + log_file
@@ -232,7 +238,7 @@ def loadFiles():
 
 #Input Parsing
 parser = optparse.OptionParser(
-                                usage="""
+                  usage="""
 
 Send AWS logs to a local dockerized Elasticsearch cluster
 
@@ -241,13 +247,14 @@ Required fields:
 --logtype
 
 Valid options for log type:
-elb          # ELB access logs
-alb          # ALB access logs
-vpc          # VPC flow logs
-r53          # Route53 query logs
-apache       # apache access logs\n
+elb                 # ELB access logs
+alb                 # ALB access logs
+vpc                 # VPC flow logs
+r53                 # Route53 query logs
+apache              # apache access log ('access_log')
+apache_archives     # apache access logs (gunzip compressed with logrotate)\n
                                 """,
-                    version="0.1"
+                  version="0.1"
                   )
 
 parser.add_option('-d',
@@ -304,6 +311,11 @@ elif options.logtype == 'apache':
     options.script_dir = 'scripts/apache/'
     log_file_extension = ''
 
+elif options.logtype == 'apache_archives':
+    options.index_name = 'apache_access_logs'
+    options.script_dir = 'scripts/apache/'
+    log_file_extension = '.gz'
+
 else:
     parser.error('input for --logtype is not a valid option.  Use \'--help\' for a list of options')
 
@@ -328,13 +340,13 @@ createIndexAndMapping()
 putIngestPipeline()
 
 # Create a new index-pattern in .kibana index
-createKibanaIndexIndexPattern()
+createKibanaIndexPattern()
 
 # Set new index-pattern to default index
-setKibanaIndexDefaultIndex()
+setKibanaDefaultIndex()
 
 # delete useless index-patterns in .kibana index that we will never use
-deleteKibanaIndexIndexPatterns()
+deleteKibanaIndexPatterns()
 
 # Import search / visualizations / dashboards into Kibana
 # we will be returned the dashboard ID, so that we can put it in the URL at the end

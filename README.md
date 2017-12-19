@@ -10,13 +10,14 @@ These scripts allow you to easily import various AWS log types into an Elasticse
 - ALB access logs
 - VPC flow logs
 - [Route53 Query Logs][r53-query-logs]
+- Apache access logs
 
 ## Future Log Types Supported
 
 - Cloudtrail audit logs
 - Cloufront access logs
 - S3 access logs
-- Apache logs (access_log / error_log)
+- Others to come!
 
 ## Steps Automated
 

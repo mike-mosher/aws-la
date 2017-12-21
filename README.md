@@ -2,14 +2,14 @@
 
 ## Description
 
-These scripts allow you to easily import various AWS log types into an Elasticsearch cluster running locally on your computer in a docker container.
+This script allows you to easily import various AWS log types into an Elasticsearch cluster running locally on your computer in a docker container.
 
 ## Supported AWS Log Types
 
 - ELB access logs
 - ALB access logs
 - VPC flow logs
-- [Route53 Query Logs][r53-query-logs]
+- [Route53 query logs][r53-query-logs]
 - Apache access logs
 
 ## Future Log Types Supported

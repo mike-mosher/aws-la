@@ -83,7 +83,7 @@ The script configures everything that is needed in the ELK stack:
 - You can import multiple log types in the same ELK cluster. Just run the command again with the new log type and log directory:
 
   ```
-   python importVpcFlowLogs.py --logtype vpc --logdir ~/logs/vpc-flowlogs/
+   python importLogs.py --logtype vpc --logdir ~/logs/vpc-flowlogs/
   ```
 
 - When done, you can shutdown the containers:

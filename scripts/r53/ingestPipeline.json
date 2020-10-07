@@ -6,7 +6,7 @@
         "field": "message",
         "patterns":
           [
-            "^%{TIMESTAMP_ISO8601:timestamp} %{NUMBER:log_version} %{TIMESTAMP_ISO8601:dns_query_timestamp} %{WORD:hosted_zone_id} %{DATA:dns_query_name} %{WORD:dns_query_type} %{WORD:dns_response_code} %{WORD:protocol} %{WORD:r53_edge_location} (?:%{IPV4:resolver_ip_address}|%{IPV6:resolver_ip_address_ipv6}) (?:-|%{IPV4:edns_client_subnet_zero}/%{NUMBER:edns_client_cidr})$"
+            "^%{TIMESTAMP_ISO8601:timestamp} %{NUMBER:log_version} %{TIMESTAMP_ISO8601:dns_query_timestamp} %{WORD:hosted_zone_id} %{DATA:dns_query_name} %{WORD:dns_query_type} %{WORD:dns_response_code} %{WORD:protocol} %{NOTSPACE:r53_edge_location} (?:%{IPV4:resolver_ip_address}|%{IPV6:resolver_ip_address_ipv6}) %{NOTSPACE:edns_client_subnet}$"
           ]
       }
     },
